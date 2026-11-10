@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0 (2026-11-10)
+- Cross-platform: `agents/openai.yaml` for ChatGPT and Codex (display name, description, default prompt), platform-neutral wording, explicit calls documented (`@plume`, `$plume`, `/plume:<mode>`).
+- Fallback when scripts can't run on a platform: the model applies the checks and labels it.
+- Description rewritten with use case and triggers first.
+- Compatibility section and a per-release test checklist.
+- Install commands point to the `skill-plume` repo.
+
 ## 0.1.0 (2026-11-10)
 - First version.
 - Skill with seven modes: write, edit, repurpose, review, learn, setup, add-format.

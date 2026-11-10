@@ -1,0 +1,7 @@
+interface:
+  display_name: "Plume"
+  short_description: "Writes like you, reads like your audience. Drafts, edits and reviews in your own voice."
+  brand_color: "#191919"
+  default_prompt: "Write a LinkedIn post about "
+policy:
+  allow_implicit_invocation: true

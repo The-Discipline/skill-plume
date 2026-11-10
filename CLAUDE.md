@@ -41,6 +41,20 @@ A writing assistant skill that writes in the user's own voice. It replaces the o
 - **Plain-Python scripts with a YAML subset parser** (`plume_yaml.py`), so they run in the Claude app's code execution without dependencies.
 - **Agents in Claude Code:** angles and critics on sonnet; writer, editor, judge on opus. In the Claude app, roles run sequentially, labelled "Reduced Plume".
 
+- **Cross-platform (Nov 2026):** one skill folder for Claude and OpenAI (ChatGPT desktop, Codex), both on the open Agent Skills standard. `agents/openai.yaml` inside the skill holds OpenAI display metadata; Claude Code plugin agents stay at plugin level. ChatGPT web and mobile only run plugin-bundled skills: an OpenAI plugin is a later step, built from OpenAI's docs. If a script can't run on a platform, the model applies the same checks and says so.
+- **Description order:** use case and trigger words first, tagline last. Hosts shorten descriptions when many skills are installed.
+- **Repo name:** `skill-plume`, in a series with `skill-prism`. No verb for the command ("plumatize" rejected): Plume has several modes, so the mode is the verb (`/plume:write`, `/plume:edit`).
+
+## Release test checklist
+
+On every platform marked supported or expected:
+1. The skill installs without error.
+2. It triggers from the description and from its explicit call.
+3. Reference files load (a family profile, a role).
+4. Scripts run (`validate_pack.py`, `lint.py`), or the fallback label appears.
+5. Full or reduced mode is stated correctly.
+6. The output ends with the "show the work" line.
+
 ## Rejected ideas
 
 - One skill per format, or separate behaviours per format: replaced by data profiles over one engine.

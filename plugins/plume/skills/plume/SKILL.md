@@ -1,6 +1,6 @@
 ---
 name: plume
-description: "Plume: writes like you, reads like your audience. A writing assistant that drafts, edits, repurposes and reviews text in the user's own voice, using their voice pack (voice, anti-patterns, lexicon, audiences, facts, published examples). Use when the user asks to write, draft, rewrite, edit, review or adapt a post, article, email, message, comment, slides, script or page in their voice, or says 'plume', 'write like me', 'make this sound like me', 'écris comme moi'. Also to set up or update a voice pack, or to learn from a published version. Not for: pure translation, generic copy with no voice pack and no wish to create one, factual questions."
+description: "Writing assistant in the user's own voice. Use to write, draft, rewrite, edit, review, repurpose or adapt a post, article, email, message, comment, slides, script or page, or when the user says 'plume', 'write like me', 'make this sound like me', 'écris comme moi'. Also to set up a voice pack or learn from a published version. Not for pure translation, generic copy without a voice pack, or factual questions. Plume: writes like you, reads like your audience, using the user's voice pack and critics that check it as a real reader would."
 ---
 
 # Plume
@@ -29,7 +29,7 @@ Look in this order and stop at the first complete source:
 3. A Notion page titled "Plume pack" (or the page the user names), through the Notion connector
 4. The conversation
 
-If code execution is available, run `python3 scripts/validate_pack.py <pack-dir>` from this skill's folder and report gaps in one line.
+If code execution is available, run `python3 scripts/validate_pack.py <pack-dir>` from this skill's folder and report gaps in one line. If a script fails to run on this platform, say so once and apply the same checks by reading, labelled "lint done by the model".
 
 No pack: offer `setup` mode (section 1). If the user declines, write in **no-pack mode**: family and platform rules only, output labelled "No voice pack: generic voice."
 
@@ -75,14 +75,16 @@ Load only what this run needs: one family, one platform, the roles used, at most
 
 ## 4. Roles and models
 
-Role prompts live in `roles/`. In Claude Code with the Plume plugin, run each with its plugin agent:
+**Explicit call.** Users can call Plume by name: `/plume:write`, `/plume:edit` and the other modes in Claude Code, `@plume` in ChatGPT, `$plume` in Codex. It also triggers from the description.
+
+Role prompts live in `roles/`. Where named agents are available (Claude Code with the Plume plugin), run each with its plugin agent:
 - `plume:angles` (mid-tier): three angles in parallel
 - `plume:writer` (top): the draft
 - `plume:reader`, `plume:voice-matcher`, `plume:fact-checker` (mid-tier): critics, in parallel
 - `plume:editor` (top): one round of minimal changes
 - `plume:judge` (top): blind A/B
 
-Elsewhere, run roles as separate subagents when available.
+On other platforms (Claude app, ChatGPT, Codex), run roles as separate subagents if the platform offers them.
 
 **Reduced mode** (no subagents): run the roles one after another, and for each critic start a fresh section that restates only what that critic is allowed to see. Label the output "Reduced Plume: critics were not independent."
 

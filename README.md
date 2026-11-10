@@ -96,12 +96,25 @@ Plume looks for it in your attachments, a `plume-pack/` folder, your project fil
 
 **Claude Code**
 ```bash
-claude plugin marketplace add <owner>/plume
+claude plugin marketplace add <owner>/skill-plume
 claude plugin install plume@plume
 ```
 Commands: `/plume:write`, `/plume:edit`, `/plume:repurpose`, `/plume:review`, `/plume:learn`, `/plume:setup`.
 
-In Claude Code, each role runs as its own agent with a model chosen for the job: mid-tier for the angle finders and critics, top model for the writer, editor and judge. In the Claude app, roles run one after another on the model you selected, and the output says so ("Reduced Plume").
+**ChatGPT desktop app:** upload the `plume` skill from Plugins > Skills, then call it with `@plume`.
+
+**Codex:** copy the `plume` folder to `~/.agents/skills/`, then call it with `$plume`.
+
+In Claude Code, each role runs as its own agent with a model chosen for the job: mid-tier for the angle finders and critics, top model for the writer, editor and judge. Elsewhere, roles run on the model you selected, one after another if the platform can't run independent agents, and the output says so ("Reduced Plume").
+
+**Compatibility**
+- Claude Code: full, recommended
+- Claude app: supported
+- ChatGPT desktop and Codex: expected to work, reduced mode, scripts to be tested
+- ChatGPT web and mobile: needs an OpenAI plugin, not available yet
+- Your voice pack is plain Markdown and works with any assistant
+
+Status comes from real tests, not from documentation. Each release is checked against the list in `CLAUDE.md`.
 
 ## Use it
 
@@ -117,13 +130,14 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.1.0, untested on real briefs.**
+**v0.2.0, untested on real briefs.**
 - Built: skill and modes, 8 families, 7 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
-- Not yet done: a real voice pack, a real run, the eval set, verified platform limits
+- Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet
+- Not yet done: a real voice pack, a real run, the eval set, verified platform limits, an OpenAI plugin for ChatGPT web and mobile
 
 ## Credits
 
-Built by [Virgile Gouala](https://goua.la). Sister skill: [Prism](https://github.com/The-Discipline/prism-council), a decision council for one-person businesses.
+Built by [Virgile Gouala](https://goua.la). Sister skill: [Prism](https://github.com/The-Discipline/skill-prism), a decision council for one-person businesses.
 
 License: to be decided.
