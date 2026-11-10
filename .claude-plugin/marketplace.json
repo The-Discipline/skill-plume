@@ -1,0 +1,14 @@
+{
+  "name": "plume",
+  "description": "Plume: writes like you, reads like your audience",
+  "owner": {
+    "name": "Virgile Gouala"
+  },
+  "plugins": [
+    {
+      "name": "plume",
+      "source": "./plugins/plume",
+      "description": "A writing assistant that drafts, edits, repurposes and reviews text in your own voice."
+    }
+  ]
+}

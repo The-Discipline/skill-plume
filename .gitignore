@@ -1,0 +1,9 @@
+# User packs are private: never commit a real one
+plume-pack/
+packs/
+
+# Build output
+dist/
+
+__pycache__/
+.DS_Store
