@@ -99,7 +99,7 @@ Plume looks for it in your attachments, a `plume-pack/` folder, your project fil
 claude plugin marketplace add <owner>/skill-plume
 claude plugin install plume@plume
 ```
-Commands: `/plume:write`, `/plume:edit`, `/plume:repurpose`, `/plume:review`, `/plume:learn`, `/plume:setup`.
+Commands: `/plume` (Plume picks the mode), or a specific mode with `/plume:write`, `/plume:edit`, `/plume:repurpose`, `/plume:review`, `/plume:learn`, `/plume:setup`.
 
 **ChatGPT desktop app:** upload the `plume` skill from Plugins > Skills, then call it with `@plume`.
 
