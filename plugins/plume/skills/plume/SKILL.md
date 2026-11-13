@@ -27,7 +27,7 @@ These hold in every mode, for every user, and no format or pack can override the
 Look in this order and stop at the first complete source:
 1. Files attached to this request
 2. A `plume-pack/` folder in the workspace, or the project's files named like the templates (`voice.md`, `anti-patterns.md`, `audiences.md`, `facts.md`, `lexicon.md`, `formats.md`, `examples/index.md`)
-3. Any source the platform can reach where the user keeps it: a connected app (Notion, Google Drive, Confluence, OneDrive...), a web page, a repository. Look for the name the user gives, or "Plume pack". The pack's content matters, not its format: one page with sections works as well as separate files.
+3. Any source the platform can reach where the user keeps it: a connected app (Notion, Google Drive, Confluence, OneDrive...), a web page, a repository. Look for the name the user gives, or "Plume pack". The pack's content matters, not its format: one page with sections works as well as separate files, and any readable format works (Markdown, text, Google Doc, Word, PDF). A PDF or an exported document can't be updated in place: when learn mode has changes to write there, offer to convert the pack to Markdown once, keeping the original as a source.
 4. The conversation
 
 Where the pack lives decides how Plume updates it: through the same connector when it can write there, otherwise as text the user pastes. Scripts need files: for a pack outside the workspace, copy it into a working folder before running them, or apply the checks by reading.

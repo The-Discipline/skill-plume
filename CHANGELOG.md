@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.2 (2026-11-13)
+- Any readable format for the pack and for setup's imports: Markdown, text, Google Doc, Word, PDF, slides, web pages, exports of past posts. Read-only formats are converted to Markdown once, when learn mode has changes to write.
+
 ## 0.4.1 (2026-11-13)
 - The voice pack and the business source can live in any place the assistant can reach: files, any connected app (Notion, Google Drive...), a web page. Notion is an example, no longer the only named app. Updates go back through the same connector when possible, otherwise as text to paste.
 

@@ -87,7 +87,7 @@ Your pack lives outside the skill, so updates never overwrite it:
 - `examples/`: pieces you published, indexed by format and language. Three are enough to start (a "thin pack", and outputs say so); 10 to 15 is where it gets close.
 - `learn-log.md`: the updates you accepted, with their evidence
 
-Keep it wherever your assistant can read: attached files, a `plume-pack/` folder, your project files, or any connected app (Notion, Google Drive...) under the name "Plume pack" or one you give. Plume updates it through the same connector when it can, otherwise it gives you the text to paste. Keep it private: it holds your positioning and facts. Templates are in `plugins/plume/skills/plume/templates/`, and a complete fictional pack is in `examples/pack-example/`.
+Keep it wherever your assistant can read: attached files, a `plume-pack/` folder, your project files, or any connected app (Notion, Google Drive...) under the name "Plume pack" or one you give. Any readable format works (Markdown, Google Doc, Word, PDF). Markdown is the easiest to keep up to date: a PDF can be read, not edited, so Plume offers to convert it the first time it has changes to write. It updates the pack through the same connector when it can, otherwise it gives you the text to paste. Keep it private: it holds your positioning and facts. Templates are in `plugins/plume/skills/plume/templates/`, and a complete fictional pack is in `examples/pack-example/`.
 
 ## Install
 
@@ -133,7 +133,7 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.4.1, untested on real briefs.**
+**v0.4.2, untested on real briefs.**
 - Built: skill and modes, 9 families, 7 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet

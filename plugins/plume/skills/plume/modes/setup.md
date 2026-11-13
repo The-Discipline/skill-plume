@@ -12,7 +12,7 @@ Build a user pack, or import an existing voice bible.
 
 1. **Collect material, in one message:**
    - at least 3 published pieces, ideally 10 to 15 across the families the user writes most. Comments and replies count: they show how the user talks, not only how they post.
-   - any existing voice guide, style guide, anti-pattern list or prompt they already use
+   - any existing voice guide, style guide, brand book, anti-pattern list or prompt they already use, in any format (PDF, Word, Google Doc, slides, a web page). Exports of past posts count as published pieces.
    - where their business data lives (see above), or their site, offers and booking link
 2. **Import existing documents** into the template structure (`templates/`) without rewriting the user's words. Deduplicate, and list conflicts between documents for the user to settle instead of choosing silently.
 3. **Extract from the pieces**, every line marked "inferred, to confirm":
