@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+- Docs: identity brief (`docs/identity.md`): names, descriptions, cast, visual concept, diagrams.
+- Docs: landing page decisions in `CLAUDE.md`.
+
 ## 0.2.0 (2026-11-10)
 - Cross-platform: `agents/openai.yaml` for ChatGPT and Codex (display name, description, default prompt), platform-neutral wording, explicit calls documented (`@plume`, `$plume`, `/plume:<mode>`).
 - Fallback when scripts can't run on a platform: the model applies the checks and labels it.
