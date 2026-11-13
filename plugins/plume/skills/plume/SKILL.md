@@ -27,10 +27,12 @@ These hold in every mode, for every user, and no format or pack can override the
 Look in this order and stop at the first complete source:
 1. Files attached to this request
 2. A `plume-pack/` folder in the workspace, or the project's files named like the templates (`voice.md`, `anti-patterns.md`, `audiences.md`, `facts.md`, `lexicon.md`, `formats.md`, `examples/index.md`)
-3. A Notion page titled "Plume pack" (or the page the user names), through the Notion connector
+3. Any source the platform can reach where the user keeps it: a connected app (Notion, Google Drive, Confluence, OneDrive...), a web page, a repository. Look for the name the user gives, or "Plume pack". The pack's content matters, not its format: one page with sections works as well as separate files.
 4. The conversation
 
-The pack is about voice. Business data (offers, prices, readers, positioning) may live in a separate source: a "Grey matter" / "Matière grise" Notion page or a Prism context file. Setup imports from it; when `facts.md` says a line comes from a source older than three months, mention it once.
+Where the pack lives decides how Plume updates it: through the same connector when it can write there, otherwise as text the user pastes. Scripts need files: for a pack outside the workspace, copy it into a working folder before running them, or apply the checks by reading.
+
+The pack is about voice. Business data (offers, prices, readers, positioning) may live in a separate source, in any of the places above: for example a "Grey matter" / "Matière grise" page or a Prism context file. Setup imports from it; when `facts.md` says a line comes from a source older than three months, mention it once.
 
 If code execution is available, run `python3 scripts/validate_pack.py <pack-dir>` from this skill's folder and report gaps in one line. If a script fails to run on this platform, say so once and apply the same checks by reading, labelled "lint done by the model".
 

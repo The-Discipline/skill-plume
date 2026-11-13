@@ -4,7 +4,7 @@ Build a user pack, or import an existing voice bible.
 
 **Extract first, ask last.** People describe how they wish they sounded; their published pieces show how they actually sound. So setup drafts everything it can from what the user published, and asks only for what can't be extracted: convictions, facts, readers, bans. Five questions at most, in one message.
 
-**Business data already written somewhere?** Before asking about offers, prices, readers or positioning, look for a business source and import from it: a "Grey matter" / "Matière grise" page in Notion, a Prism context file (`prismatize-context.md`), an offers page on the user's site, or a document the user names. Copy what Plume needs into `audiences.md` and `facts.md`, each line ending with "(from {source}, {date})", and the source's positioning into the Convictions draft, marked "to confirm". Never ask again for what the source already says.
+**Business data already written somewhere?** Before asking about offers, prices, readers or positioning, ask where it lives and import from it, from any source the platform can reach: a connected app (Notion, Google Drive...), an attached file, a web page. Typical ones: a "Grey matter" / "Matière grise" page, a Prism context file (`prismatize-context.md`), an offers page on the user's site. If the platform can't reach it, ask the user to paste or attach it. Copy what Plume needs into `audiences.md` and `facts.md`, each line ending with "(from {source}, {date})", and the source's positioning into the Convictions draft, marked "to confirm". Never ask again for what the source already says.
 
 **Quick start** (the user wants to try Plume now): ask for three pieces they published and are happy with, who they write for, and their main offer with its link (skip what a business source already gives). Draft `voice.md` and `anti-patterns.md` from the three pieces, every line marked "inferred, to confirm". Fill `audiences.md` and `facts.md` with only what they said, index the three pieces, validate, and start writing. The pack is thin: learn mode grows it with each piece they publish.
 
@@ -25,4 +25,4 @@ Build a user pack, or import an existing voice bible.
 6. **formats.md:** enabled families and platforms, signatures, the mechanical bans as lint rules.
 7. **Examples:** save each piece under `examples/` and index it.
 8. **Validate** with `python3 scripts/validate_pack.py <pack>` and show the remaining gaps.
-9. Tell the user where the pack lives and that it stays private: it contains their positioning and facts.
+9. **Where the pack lives** is the user's choice: files, a project, Notion, Google Drive, any place their assistant can read. Write it there if the platform can, otherwise hand it over as files to save. Tell the user it stays private: it contains their positioning and facts.

@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.4.1 (2026-11-13)
+- The voice pack and the business source can live in any place the assistant can reach: files, any connected app (Notion, Google Drive...), a web page. Notion is an example, no longer the only named app. Updates go back through the same connector when possible, otherwise as text to paste.
+
 ## 0.4.0 (2026-11-13)
 - Setup extracts first: voice, lexicon and anti-patterns are drafted from published pieces (comments included), then five questions at most for what can't be extracted.
 - Setup imports business data (offers, readers, positioning) from an existing source: a Grey matter / Matière grise Notion page, a Prism context file, the user's site. Each imported line keeps its source and date.
