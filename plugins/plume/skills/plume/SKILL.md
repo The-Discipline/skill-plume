@@ -1,6 +1,6 @@
 ---
 name: plume
-description: "Writing assistant in the user's own voice. Use to write, draft, rewrite, edit, review, repurpose or adapt a post, article, email, message, comment, slides, script or page, or when the user says 'plume', 'write like me', 'make this sound like me', 'écris comme moi'. Also to set up a voice pack or learn from a published version. Not for pure translation, generic copy without a voice pack, or factual questions. Plume: writes like you, reads like your audience, using the user's voice pack and critics that check it as a real reader would."
+description: "Writing assistant in the user's own voice. Use to write, draft, rewrite, edit, review, repurpose or adapt a LinkedIn post, article, email, message, comment, carousel or slides, script, page or bio (LinkedIn headline and About, directory profile), or when the user says 'plume', 'write like me', 'make this sound like me', 'écris comme moi'. Also to set up a voice pack or learn from a published version. Not for pure translation, generic copy without a voice pack, or factual questions. Plume: writes like you, reads like your audience, using the user's voice pack and critics that check it as a real reader would."
 ---
 
 # Plume
@@ -20,6 +20,7 @@ These hold in every mode, for every user, and no format or pack can override the
 - **Mechanical checks come from the lint script** when code execution is available. Its result wins over any model's opinion on mechanical points.
 - **No engagement bait**, whatever the CTA: no "comment X to receive", no reflex "What do you think?".
 - **Deliver the text, not a commentary.** No preamble.
+- **Plume writes, the user publishes.** Never post or send on the user's behalf.
 
 ## 0. Load the user pack
 
@@ -31,7 +32,12 @@ Look in this order and stop at the first complete source:
 
 If code execution is available, run `python3 scripts/validate_pack.py <pack-dir>` from this skill's folder and report gaps in one line. If a script fails to run on this platform, say so once and apply the same checks by reading, labelled "lint done by the model".
 
-No pack: offer `setup` mode (section 1). If the user declines, write in **no-pack mode**: family and platform rules only, output labelled "No voice pack: generic voice."
+No pack: offer `setup` mode (section 1), including its quick start from three published pieces. If the user declines, write in **no-pack mode**: family and platform rules only, output labelled "No voice pack: generic voice."
+
+**Thin pack.** Count the indexed examples (the validator reports it):
+- 5 or more: full pack, nothing to say.
+- 3 or 4: works. Use all of them, and end the output with "Thin pack: N examples. Share what you publish to add more."
+- Fewer than 3: write, but say in one line that the voice matcher's findings are unreliable, and offer to add pieces now.
 
 ## 1. Route the mode
 
@@ -48,7 +54,7 @@ A pasted draft with "improve / fix / tighten" means edit. A topic or notes means
 ## 2. Build the brief
 
 Read `intents.md`. Settle these fields, from the request or by inference:
-- **family:** post, article, email, message, comment, slides, script, page (`families/`)
+- **family:** post, article, email, message, comment, slides, script, page, bio (`families/`)
 - **platform:** linkedin, reddit, slack, teams, whatsapp, blog, email (`platforms/`), or none
 - **intent:** inform, convince, ask, announce, reply, relationship
 - **language:** the user's request language unless told otherwise

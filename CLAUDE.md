@@ -38,6 +38,14 @@ A writing assistant skill that writes in the user's own voice. It replaces the o
 - **Forbidden fields in any profile:** tone, voice, style, persona, personality. Voice lives in `voice.md`.
 - **Engine bans can be extended, never removed** (the em dash is banned for everyone).
 - **Platform limits stay `null` until verified**, with `last_checked`. Never hard-code numbers from memory.
+- **Stock words are flagged, never replaced** (`stock-words.md`, English and French, kept short). Replacing words automatically produces a different kind of generic text; the editor or the author decides. Users allow words they really use with `stock_words_allow`.
+- **Specificity check:** concrete details (names, numbers, quotes, placeholders) per 100 words, above 60 words. A rough count to catch text with nothing lived or measured in it, not a quality score.
+- **Invisible characters are always flagged.** Non-breaking spaces are not: French typography needs them.
+- **The lint lists findings, it never scores.** A 0-100 "human" score is false precision, like Prism's rejected confidence scores.
+- **Thin pack:** Plume runs from 3 published pieces (quick start in setup), says "Thin pack: N examples" until there are 5, and learn mode offers to add each published piece first. Asking for 10 to 15 up front was a barrier at install.
+- **Bio family:** LinkedIn headline and About, directory and freelance platform profiles, speaker and author bios. Separate from `page`: a different reader situation (comparing profiles in seconds) and versions by length.
+- **Plume never posts.** Most platforms only allow automated posting through approved apps, and the user's account carries the risk.
+- **LinkedIn first in positioning:** examples in the README and on the page lead with LinkedIn, where the demand is. The engine stays multi-platform.
 - **Plain-Python scripts with a YAML subset parser** (`plume_yaml.py`), so they run in the Claude app's code execution without dependencies.
 - **Agents in Claude Code:** angles and critics on sonnet; writer, editor, judge on opus. In the Claude app, roles run sequentially, labelled "Reduced Plume".
 
@@ -66,6 +74,13 @@ On every platform marked supported or expected:
 
 ## Rejected ideas
 
+From the review of linkedin-agent-skill (Nov 2026, ideas kept are credited in the README):
+- Hook formula libraries: they make every post sound the same. Angles come from the user's material.
+- A 0-100 "human" score: see locked decisions.
+- Weekly content plans, inbox triage, DM sequences: managing a presence, not writing. Out of scope.
+- Generating carousel PDFs: Plume writes the copy, not the visuals.
+- Ranking published posts by engagement to pick examples: not now (owner's call). If it comes back, engagement is a tag on examples, never a target.
+
 - One skill per format, or separate behaviours per format: replaced by data profiles over one engine.
 - Per-language profiles: language belongs to the voice pack.
 - Tone in format profiles: would split the voice per platform.
@@ -85,6 +100,7 @@ On every platform marked supported or expected:
 - Notion database as the examples corpus (fields: family, platform, language, topic, date, AI draft, final, edit distance) instead of a folder.
 - Optional: run the Reader on another model family through an API in Claude Code, for real independence.
 - A `document` family (proposals, case studies) if the owner needs it.
+- Tune `min_specificity` (1.5 per 100 words) and the stock-word list on the owner's real pieces: they must not flag his published work.
 
 ## Writing rules for this repo
 

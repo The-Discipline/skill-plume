@@ -5,7 +5,8 @@ Usage (from the skill folder):
   python3 scripts/lint.py draft.txt --profile merged.json
   add --json for machine-readable output
 
-Checks: banned characters, phrases and patterns; length; paragraph and sentence
+Checks: banned characters, phrases and patterns; invisible characters; stock
+words (flagged, never replaced); specificity; length; paragraph and sentence
 length; rhythm uniformity; lists of three; list items; links; hashtags; emojis;
 Markdown on platforms that do not render it; character limit; visible hook.
 """
@@ -31,12 +32,61 @@ MARKDOWN = [
     (re.compile(r"\[[^\]]+\]\([^)]+\)"), "Markdown link"),
 ]
 FAKE_BOLD = re.compile("[\U0001D400-\U0001D7FF]")
+# Invisible characters that only travel through copy-paste or generation.
+# Non-breaking spaces (U+00A0, U+202F) are left alone: French typography uses them.
+INVISIBLE = re.compile("[\u00AD\u180E\u200B\u200C\u200E\u200F\u2060-\u2064\uFEFF]")
+ZWJ = "\u200D"
+EMOJI_NEIGHBOUR = re.compile("[\U0001F300-\U0001FAFF\U00002600-\U000027BF\uFE0F]")
+PLACEHOLDER = re.compile(r"\[[^\]\n]{1,80}:[^\]\n]*\]")
+QUOTED = re.compile(r"[\u201C\u00AB\"]([^\u201D\u00BB\"\n]{3,})[\u201D\u00BB\"]")
+NUMBER_WORDS = re.compile(r"(?<![\w'])(two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty|thirty|fifty|hundred|thousand|million|deux|trois|quatre|cinq|six|sept|huit|neuf|dix|onze|douze|quinze|vingt|trente|cinquante|cent|cents|mille|million)(?![\w'])", re.I)
+NOT_PROPER = {"i", "i'm", "i've", "i'd", "i'll", "ok", "okay"}
 
 
 def char_of(entry):
     if isinstance(entry, str) and re.fullmatch(r"U\+[0-9A-Fa-f]{4,6}", entry):
         return chr(int(entry[2:], 16))
     return entry
+
+
+def load_stock_words():
+    path = os.path.join(merge_profile.SKILL_DIR, "stock-words.md")
+    if not os.path.exists(path):
+        return []
+    data, _ = merge_profile.plume_yaml.read(path)
+    out = []
+    for lang in ("en", "fr"):
+        out.extend(data.get(lang) or [])
+    return out
+
+
+def stock_regex(entry):
+    entry = entry.strip().replace("\u2019", "'")
+    prefix = entry.endswith("*")
+    core = r"\s+".join(re.escape(part) for part in entry.rstrip("*").split())
+    tail = r"[\w'-]*" if prefix else ""
+    return re.compile(r"(?<![\w'])" + core + tail + r"(?![\w'])", re.I)
+
+
+def specifics(text):
+    """Concrete details: numbers (digits or words), placeholders, quoted speech, names.
+
+    A rough count, meant to catch text with nothing lived or measured in it.
+    Names are capitalised words that do not start a sentence or a line.
+    """
+    count = len(re.findall(r"\d+(?:[.,]\d+)?", PLACEHOLDER.sub(" ", text)))
+    count += len(PLACEHOLDER.findall(text))
+    count += len(NUMBER_WORDS.findall(text))
+    count += sum(1 for q in QUOTED.findall(text) if len(words(q)) >= 2)
+    for sentence in SENTENCE_SPLIT.split(re.sub(r"\s*\n\s*", "\n", text)):
+        for line in sentence.split("\n"):
+            toks = words(HASHTAG.sub(" ", line))
+            for t in toks[1:]:
+                if t.lower() in NOT_PROPER:
+                    continue
+                if re.match(r"[A-Z\u00C0-\u00DD]", t) and (len(t) > 1):
+                    count += 1
+    return count
 
 
 def words(text):
@@ -81,8 +131,42 @@ def lint(text, profile):
             m = rx.search(line)
             if m:
                 find(findings, "medium", "pattern", f"pattern '{name}'", n, m.group(0)[:120])
+        inv = INVISIBLE.findall(line)
+        for i, ch in enumerate(line):
+            if ch == ZWJ:
+                before = line[i - 1] if i else ""
+                after = line[i + 1] if i + 1 < len(line) else ""
+                if not (EMOJI_NEIGHBOUR.match(before or " ") or EMOJI_NEIGHBOUR.match(after or " ")):
+                    inv.append(ch)
+        if inv:
+            codes = ", ".join(sorted({f"U+{ord(c):04X}" for c in inv}))
+            find(findings, "high", "invisible_char", f"{len(inv)} invisible character(s) ({codes}): remove before publishing", n)
         if FAKE_BOLD.search(line):
             find(findings, "high", "fake_bold", "Unicode mathematical letters used as fake bold or italic", n, line.strip()[:120])
+
+    # Stock words: flagged with their line, never replaced
+    allow = {a.lower() for a in rules.get("stock_words_allow") or []}
+    entries = [e for e in load_stock_words() + list(rules.get("stock_words") or []) if e and e.lower() not in allow]
+    norm_lines = [l.replace("\u2019", "'") for l in lines]
+    hits = []
+    for e in entries:
+        rx = stock_regex(e)
+        for n, line in enumerate(norm_lines, 1):
+            m = rx.search(line)
+            if m:
+                hits.append((n, m.group(0)))
+    for n, w in sorted(set(hits)):
+        find(findings, "low", "stock_word", f"stock word '{w}': say it the way you would", n, lines[n - 1].strip()[:120])
+    msw_stock = rules.get("max_stock_words")
+    if msw_stock is not None and len(set(w.lower() for _, w in hits)) > msw_stock:
+        find(findings, "medium", "stock_words", f"{len(set(w.lower() for _, w in hits))} different stock words (max {msw_stock}): the piece reads generic")
+
+    # Specificity: concrete details per 100 words
+    spec = specifics(text)
+    wc_all = len(words(text))
+    min_spec, min_w = rules.get("min_specificity"), rules.get("specificity_min_words") or 0
+    if min_spec and wc_all >= min_w and wc_all and spec * 100 / wc_all < min_spec:
+        find(findings, "medium", "specificity", f"{spec} concrete details (names, numbers, quotes) in {wc_all} words: add what you lived, saw or measured")
 
     # Slides are split on lines containing only ---
     is_slides = fam.get("name") == "slides"
@@ -195,6 +279,7 @@ def lint(text, profile):
         "sentences": len(sentences),
         "slides": len(slides) if is_slides else None,
         "sentence_variation": round(cv(sw), 2) if cv(sw) is not None else None,
+        "specifics": spec,
     }
     return {"stats": stats, "findings": findings, "hook": hook, "warnings": profile.get("warnings", [])}
 
@@ -202,7 +287,7 @@ def lint(text, profile):
 def render(report):
     out = []
     s = report["stats"]
-    out.append(f"Stats: {s['words']} words, {s['characters']} characters, {s['paragraphs']} paragraphs, {s['sentences']} sentences" + (f", {s['slides']} slides" if s["slides"] else ""))
+    out.append(f"Stats: {s['words']} words, {s['characters']} characters, {s['paragraphs']} paragraphs, {s['sentences']} sentences, {s['specifics']} concrete details" + (f", {s['slides']} slides" if s["slides"] else ""))
     for w in report["warnings"]:
         out.append(f"Profile warning: {w}")
     if not report["findings"]:

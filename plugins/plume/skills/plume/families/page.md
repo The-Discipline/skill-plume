@@ -2,7 +2,7 @@
 name: page
 kind: family
 version: 1
-description: Web page copy (landing page, offer page, template description, bio, about page).
+description: Web page copy (landing page, offer page, template description, about page). Short self-presentations use the bio family.
 reader_situation: Evaluating whether to trust, buy, book or download. Scans headings and buttons, reads where doubt appears.
 structure: [headline, subheadline, problem, offer, proof, objections, cta]
 hook_default: required

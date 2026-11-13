@@ -1,8 +1,15 @@
 # Changelog
 
-## Unreleased
-- Docs: identity brief (`docs/identity.md`): names, descriptions, cast, visual concept, diagrams.
-- Docs: landing page decisions in `CLAUDE.md`.
+## 0.3.0 (2026-11-13)
+- Lint: invisible characters (zero-width spaces, soft hyphens, byte order marks) flagged as high.
+- Lint: stock words in English and French (`stock-words.md`), flagged per line, never replaced; a medium finding above `max_stock_words`. Users allow their own words with `stock_words_allow`.
+- Lint: specificity check, concrete details per 100 words (`min_specificity`, `specificity_min_words`). Stats show the count.
+- New `bio` family: LinkedIn headline and About, directory profiles, speaker and author bios. Enabled on LinkedIn and blog.
+- Thin pack: setup quick start from three published pieces; the validator reports full, thin or too thin; outputs say "Thin pack" under five examples; learn mode offers to add the published piece first.
+- Invariant: Plume never posts or sends on the user's behalf.
+- Description and README lead with LinkedIn use cases.
+- Example pack: a bio example (three examples, thin pack). Tests cover the new checks.
+- Docs: identity brief (`docs/identity.md`), landing page decisions in `CLAUDE.md`, credits for ideas from linkedin-agent-skill.
 
 ## 0.2.0 (2026-11-10)
 - Cross-platform: `agents/openai.yaml` for ChatGPT and Codex (display name, description, default prompt), platform-neutral wording, explicit calls documented (`@plume`, `$plume`, `/plume:<mode>`).

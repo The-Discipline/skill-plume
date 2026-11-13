@@ -14,5 +14,11 @@ for f in plugins/plume/skills/plume/platforms/*.md; do
   python3 -I -c "import sys; sys.path.insert(0,'$S'); import plume_yaml; d,_=plume_yaml.read('$f'); assert d['kind']=='platform', '$f'"
 done
 python3 -I $S/lint.py examples/test-draft.txt --family post --platform linkedin --pack $P
+# New checks must fire: specificity on a generic text, stock words and invisible characters
+python3 -I $S/lint.py examples/test-generic.txt --family post | grep -q "specificity" || { echo "specificity check did not fire"; exit 1; }
+printf 'We leveraged a seamless\xe2\x80\x8b synergy.\n' > /tmp/plume-test.txt
+python3 -I $S/lint.py /tmp/plume-test.txt --family message | grep -q "invisible_char" || { echo "invisible character check did not fire"; exit 1; }
+python3 -I $S/lint.py /tmp/plume-test.txt --family message | grep -q "stock_word" || { echo "stock word check did not fire"; exit 1; }
+python3 -I $S/lint.py $P/examples/2026-08-bio.md --family bio --platform linkedin --pack $P > /dev/null
 python3 -I $S/diff_learn.py examples/test-draft.txt $P/examples/2026-09-onboarding.md > /dev/null
 echo "All script tests passed."

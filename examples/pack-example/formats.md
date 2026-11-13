@@ -1,5 +1,5 @@
 ---
-enabled_families: [post, article, email]
+enabled_families: [post, article, email, bio]
 enabled_platforms: [linkedin, blog, email]
 families:
   post:

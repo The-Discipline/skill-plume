@@ -3,7 +3,7 @@ name: linkedin
 kind: platform
 version: 1
 last_checked: never
-families: [post, slides, comment, article, message]
+families: [post, slides, comment, article, message, bio]
 limits:
   max_chars: null
   truncation_chars: null

@@ -3,7 +3,7 @@ name: blog
 kind: platform
 version: 1
 last_checked: never
-families: [article, page]
+families: [article, page, bio]
 limits:
   max_chars: null
   truncation_chars: null

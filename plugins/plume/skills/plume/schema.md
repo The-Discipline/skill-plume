@@ -16,6 +16,9 @@ engine_lint:
     negation_correction_fr: "(?i)\bce n'est pas [^.,;]{1,40}, c'est\b"
     not_x_but_y_fr: "(?i)\bpas (seulement |juste )?[^.,;]{1,30}, mais\b"
   max_triplets: 2
+  max_stock_words: 2
+  min_specificity: 1.5
+  specificity_min_words: 60
   min_sentence_cv: 0.25
   min_paragraph_cv: 0.15
 ---
@@ -26,7 +29,7 @@ Machine-readable part above, read by the scripts. Human explanation below.
 
 ## Kinds
 
-- **family** (`families/*.md`): structure, reader situation, hook and CTA defaults, length, lint thresholds. One per kind of piece: post, article, email, message, comment, slides, script, page.
+- **family** (`families/*.md`): structure, reader situation, hook and CTA defaults, length, lint thresholds. One per kind of piece: post, article, email, message, comment, slides, script, page, bio.
 - **platform** (`platforms/*.md`): only constraints. Limits, rendering syntax, conventions, community rules, default register. A platform never sets structure. If two platforms need a different structure, they are different families.
 
 ## Family fields
@@ -42,7 +45,7 @@ Machine-readable part above, read by the scripts. Human explanation below.
 - `slides`: `min`, `max`, `max_words_per_slide` (slides family only)
 - `lists`: allowed, limited or avoid
 - `extra_critics`: roles added for this family (seo, slide-alone, read-aloud)
-- `lint`: thresholds: `max_paragraph_words`, `max_sentence_words`, `max_single_line_ratio`, `max_list_items`, `max_links`, `max_hashtags`, `emojis`
+- `lint`: thresholds: `max_paragraph_words`, `max_sentence_words`, `max_single_line_ratio`, `max_list_items`, `max_links`, `max_hashtags`, `emojis`, plus any engine threshold below
 
 ## Platform fields
 
@@ -60,12 +63,22 @@ Machine-readable part above, read by the scripts. Human explanation below.
 
 `tone`, `voice`, `style`, `persona`, `personality`: rejected in any profile or override. Voice lives in the user pack's `voice.md`, nowhere else.
 
+## Engine lint thresholds
+
+Set in the frontmatter above, overridable like any lint field:
+- `max_triplets`: lists of three before a finding
+- `max_stock_words`: different stock words (`stock-words.md`) before the piece is flagged as generic. Each hit is also listed on its own.
+- `min_specificity`, `specificity_min_words`: concrete details (names, numbers, quotes, placeholders) per 100 words, checked only above that many words
+- `min_sentence_cv`, `min_paragraph_cv`: how uniform sentence and paragraph lengths may get
+
+Invisible characters (zero-width spaces, soft hyphens, byte order marks) are always flagged. Non-breaking spaces are not: French typography needs them.
+
 ## User overrides (`formats.md` in the pack)
 
 Frontmatter with:
 - `families:` map of family name to overridden fields
 - `platforms:` map of platform name to overridden fields
-- `lint:` global additions (`banned_chars`, `banned_phrases`, `patterns`)
+- `lint:` global additions (`banned_chars`, `banned_phrases`, `patterns`, `stock_words`) and `stock_words_allow`, the stock words you really use
 - `enabled_families`, `enabled_platforms`: optional lists
 - `signatures:` map of `<platform>_<language>` to the signature block
 

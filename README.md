@@ -2,10 +2,10 @@
 
 **Writes like you. Reads like your audience.**
 
-A writing assistant skill for people who publish under their own name. Plume drafts, edits, repurposes and reviews posts, articles, emails, messages and more, in your voice. Then it checks the result with critics that each lack something the writer has, so the problems a stranger would notice get caught before you publish.
+A writing assistant skill for people who publish under their own name. Plume drafts, edits, repurposes and reviews LinkedIn posts, articles, emails, messages, bios and more, in your voice. Then it checks the result with critics that each lack something the writer has, so the problems a stranger would notice get caught before you publish.
 
 > [!IMPORTANT]
-> Plume is only as good as your voice pack: your voice, your bans, your audiences, your facts and, above all, pieces you actually published. Run `setup` first.
+> Plume is only as good as your voice pack: your voice, your bans, your audiences, your facts and, above all, pieces you actually published. Run `setup` first. Three published pieces are enough to start; Plume asks for more as you go.
 
 ## What it does
 
@@ -22,7 +22,8 @@ A writing assistant skill for people who publish under their own name. Plume dra
 - **Write without material.** If there's nothing concrete to work with, Plume asks up to three questions instead of filling the gap.
 - **Change your voice per platform.** Formats change length, structure and syntax. Your voice stays the same everywhere.
 - **Loop.** One revision round, then a blind comparison keeps the better version.
-- **Bait engagement.** No "comment X to get the guide", no reflex "What do you think?".
+- **Bait engagement.** No "comment X to get the guide", no reflex "What do you think?", no hook formulas.
+- **Post for you.** Plume writes, you publish. It doesn't connect to your accounts: most platforms only allow automated posting through approved apps, and your account is the one at risk.
 - **Translate** for the sake of translating, or write generic copy for a brand without a voice pack.
 - **Design visuals.** For slides it writes the copy and the layout intent, not the images.
 
@@ -56,14 +57,14 @@ flowchart LR
 - **Editor:** one round of minimal fixes
 - **Judge:** picks between two versions without knowing which one is the revision
 
-The **lint** is a script, not an agent: banned characters and phrases, AI tells ("not X, it's Y", generic openers, reflex questions), rhythm uniformity, lists of three, paragraph length, Markdown where the platform doesn't render it, hashtag and link counts.
+The **lint** is a script, not an agent: banned characters and phrases, invisible characters, AI tells ("not X, it's Y", generic openers, reflex questions), stock words in English and French (flagged, never replaced), too few concrete details (names, numbers, quotes), rhythm uniformity, lists of three, paragraph length, Markdown where the platform doesn't render it, hashtag and link counts. It lists findings; it doesn't give a score.
 
 Every output ends with "show the work": the lint report, each critique, the editor's changes and the judge's choice.
 
 ## Formats
 
 A piece is defined by four things:
-- **Family**, the kind of piece: post, article, email, message, comment, slides, script, page
+- **Family**, the kind of piece: post, article, email, message, comment, slides, script, page, bio (LinkedIn headline and About, directory profile, speaker bio)
 - **Platform**, where it's published: LinkedIn, Reddit, Slack, Teams, WhatsApp, blog, email
 - **Intent**, what it's for: inform, convince, ask, announce, reply, relationship
 - **Language**
@@ -82,7 +83,7 @@ Your pack lives outside the skill, so updates never overwrite it:
 - `audiences.md`: the specific readers the Reader critic plays
 - `facts.md`: offers, prices, links, proof. The only source for claims.
 - `formats.md`: your overrides (shorter posts, extra bans, signatures per platform)
-- `examples/`: pieces you published, indexed by format and language
+- `examples/`: pieces you published, indexed by format and language. Three are enough to start (a "thin pack", and outputs say so); 10 to 15 is where it gets close.
 - `learn-log.md`: the updates you accepted, with their evidence
 
 Plume looks for it in your attachments, a `plume-pack/` folder, your project files, or a Notion page called "Plume pack". Keep it private: it holds your positioning and facts. Templates are in `plugins/plume/skills/plume/templates/`, and a complete fictional pack is in `examples/pack-example/`.
@@ -119,8 +120,9 @@ Status comes from real tests, not from documentation. Each release is checked ag
 ## Use it
 
 - "Write a LinkedIn post about the client who asked me to rebuild their CRM three times."
+- "Turn this article into a LinkedIn post and a carousel."
+- "Rewrite my LinkedIn headline and About for freelancers looking for a Notion consultant."
 - "Make this sound like me." (with your draft)
-- "Turn this article into a post and a carousel."
 - "Review this email before I send it."
 - "Here's what I actually published." (after a write, to start learn mode)
 
@@ -130,8 +132,8 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.2.0, untested on real briefs.**
-- Built: skill and modes, 8 families, 7 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
+**v0.3.0, untested on real briefs.**
+- Built: skill and modes, 9 families, 7 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet
 - Not yet done: a real voice pack, a real run, the eval set, verified platform limits, an OpenAI plugin for ChatGPT web and mobile
@@ -139,5 +141,7 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 ## Credits
 
 Built by [Virgile Gouala](https://goua.la). Sister skill: [Prism](https://github.com/The-Discipline/skill-prism), a decision council for one-person businesses.
+
+Ideas, not code, from Jake Schincariol's [linkedin-agent-skill](https://github.com/Jakeschincariol/linkedin-agent-skill): a stock-word list, a specificity check and invisible-character cleanup in the lint, starting a voice from three posts, and a bio format.
 
 License: to be decided.

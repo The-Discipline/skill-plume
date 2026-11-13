@@ -18,10 +18,24 @@ PLACEHOLDER = re.compile(r"\{[^}]+\}|TODO|TO FILL", re.I)
 INDEX_LINE = re.compile(r"^-\s*([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|\s*(\S+)\s*$")
 
 
+THIN = 5      # below this many indexed examples, the pack is "thin"
+MINIMUM = 3   # below this, voice matching is unreliable
+
+
+def status(count):
+    if count == 0:
+        return "no examples: Plume writes from your rules only, and the voice matcher can't run"
+    if count < MINIMUM:
+        return f"too thin ({count} examples): add at least {MINIMUM - count} more published piece(s) before relying on the voice matcher"
+    if count < THIN:
+        return f"thin ({count} examples): works, outputs say so. Add pieces as you publish, through learn mode"
+    return f"full ({count} examples)"
+
+
 def check(pack):
     problems, notes = [], []
     if not os.path.isdir(pack):
-        return [f"not a folder: {pack}"], []
+        return [f"not a folder: {pack}"], [], None
     for name in REQUIRED + OPTIONAL:
         path = os.path.join(pack, name)
         required = name in REQUIRED
@@ -68,8 +82,8 @@ def check(pack):
                     problems.append(f"formats/{fn}: forbidden field '{bad}'")
 
     ipath = os.path.join(pack, "examples", "index.md")
+    count = 0
     if os.path.exists(ipath):
-        count = 0
         with open(ipath, encoding="utf-8") as f:
             for n, line in enumerate(f, 1):
                 if not line.startswith("- "):
@@ -82,20 +96,20 @@ def check(pack):
                 path = os.path.join(pack, m.group(6))
                 if not os.path.exists(path):
                     problems.append(f"examples/index.md line {n}: file not found {m.group(6)}")
-        if count < 5:
-            notes.append(f"only {count} indexed examples: voice matching works better with 5 or more per family you use")
-    return problems, notes
+    return problems, notes, count
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("pack")
     args = ap.parse_args()
-    problems, notes = check(args.pack)
+    problems, notes, count = check(args.pack)
     for p in problems:
         print(f"PROBLEM: {p}")
     for n in notes:
         print(f"note: {n}")
+    if count is not None:
+        print(f"Pack status: {status(count)}")
     print("Pack OK." if not problems else f"{len(problems)} problem(s).")
     sys.exit(1 if problems else 0)
 

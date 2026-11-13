@@ -1,6 +1,6 @@
 # Plume identity brief
 
-Everything needed to design Plume's logo, visuals, diagrams and landing page. Source of truth: `SKILL.md` v0.2. Sister brief: Prism's `docs/identity.md`.
+Everything needed to design Plume's logo, visuals, diagrams and landing page. Source of truth: `SKILL.md` v0.3. Sister brief: Prism's `docs/identity.md`.
 
 ## 1. Name and taglines
 
@@ -95,7 +95,7 @@ Not an agent: a script. Banned characters and phrases, AI tells ("not X, it's Y"
 ### Key numbers
 
 - 7 modes: write, edit, repurpose, review, learn, setup, add-format
-- 8 families: post, article, email, message, comment, slides, script, page
+- 9 families: post, article, email, message, comment, slides, script, page, bio
 - 7 platforms: LinkedIn, Reddit, Slack, Teams, WhatsApp, blog, email
 - 6 intents: inform, convince, ask, announce, reply, relationship
 - 3 angles, 3 critics, 1 revision round, 1 blind pick

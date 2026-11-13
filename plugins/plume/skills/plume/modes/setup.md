@@ -2,8 +2,12 @@
 
 Build a user pack, or import an existing voice bible.
 
+**Quick start** (the user wants to try Plume now): ask for three pieces they published and are happy with, who they write for, and their main offer with its link. Draft `voice.md` and `anti-patterns.md` from the three pieces, every line marked "inferred, to confirm". Fill `audiences.md` and `facts.md` with only what they said, index the three pieces, validate, and start writing. The pack is thin: learn mode grows it with each piece they publish.
+
+**Full setup:**
+
 1. **Ask for material:**
-   - 5 to 20 published pieces, ideally across the families the user writes most
+   - at least 3 published pieces, ideally 10 to 15 across the families the user writes most
    - any existing voice guide, style guide, anti-pattern list or prompt they already use
    - who they write for
    - their site, offers and booking link
