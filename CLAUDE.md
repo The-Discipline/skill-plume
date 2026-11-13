@@ -51,6 +51,7 @@ A writing assistant skill that writes in the user's own voice. It replaces the o
 - **Repetition check before angles:** compare the raw material with published topics; if close, say so and ask for a new angle, a follow-up, or go ahead.
 - **Business data can live outside the pack** (Grey matter / Matière grise, Prism context file). Setup imports offers, readers and positioning from it with source and date, and never asks again for what it says. Plume and Prism should read the same business source rather than each keep a copy.
 - **Sources are not tied to a tool.** The pack and the business source can live anywhere the platform reaches (files, any connector, a web page). Notion is one example, never a requirement. Updates go back through the same connector when it can write, otherwise as text to paste.
+- **First run: value before effort.** With no pack, one short message asks for three posts, the reader and the offer (English and French texts in `modes/setup.md`); Plume writes the requested piece first and offers to save the pack after. People who have never published get a neutral voice, labelled, and an invitation to come back after five posts.
 - **No separate voice-bible builder skill.** Setup is the builder; two skills owning one pack format would drift.
 - **Plume never posts.** Most platforms only allow automated posting through approved apps, and the user's account carries the risk.
 - **LinkedIn first in positioning:** examples in the README and on the page lead with LinkedIn, where the demand is. The engine stays multi-platform.

@@ -36,7 +36,7 @@ The pack is about voice. Business data (offers, prices, readers, positioning) ma
 
 If code execution is available, run `python3 scripts/validate_pack.py <pack-dir>` from this skill's folder and report gaps in one line. If a script fails to run on this platform, say so once and apply the same checks by reading, labelled "lint done by the model".
 
-No pack: offer `setup` mode (section 1), including its quick start from three published pieces. If the user declines, write in **no-pack mode**: family and platform rules only, output labelled "No voice pack: generic voice."
+No pack: open with the first-run message in `modes/setup.md` (in the user's language), write the requested piece as soon as the material arrives, then offer to save the pack. If the user declines, write in **no-pack mode**: family and platform rules only, output labelled "No voice pack: generic voice."
 
 **Thin pack.** Count the indexed examples (the validator reports it):
 - 5 or more: full pack, nothing to say.

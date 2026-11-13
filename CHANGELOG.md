@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.3 (2026-11-13)
+- First run: with no pack, Plume opens with one short message (English and French) asking for three posts, the reader and the offer, writes the requested piece first, then offers to save the pack wherever the user wants.
+- First run: a voice guide is compared with the posts (the posts win until the user decides); people who have never published get a labelled neutral voice and an invitation to come back after five posts.
+
 ## 0.4.2 (2026-11-13)
 - Any readable format for the pack and for setup's imports: Markdown, text, Google Doc, Word, PDF, slides, web pages, exports of past posts. Read-only formats are converted to Markdown once, when learn mode has changes to write.
 

@@ -133,7 +133,7 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.4.2, untested on real briefs.**
+**v0.4.3, untested on real briefs.**
 - Built: skill and modes, 9 families, 7 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet
