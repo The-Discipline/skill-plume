@@ -44,6 +44,8 @@ A writing assistant skill that writes in the user's own voice. It replaces the o
 - **The lint lists findings, it never scores.** A 0-100 "human" score is false precision, like Prism's rejected confidence scores.
 - **Thin pack:** Plume runs from 3 published pieces (quick start in setup), says "Thin pack: N examples" until there are 5, and learn mode offers to add each published piece first. Asking for 10 to 15 up front was a barrier at install.
 - **Bio family:** LinkedIn headline and About, directory and freelance platform profiles, speaker and author bios. Separate from `page`: a different reader situation (comparing profiles in seconds) and versions by length.
+- **Glyphs (`glyphs.md`):** a short library of typed symbols with what screen readers announce. The user picks a list marker, numbering, arrow and allowed symbols in `formats.md`, globally or per platform. Real lists where the platform renders them, typed markers elsewhere; repurpose converts. One marker style per piece.
+- **Fake bold and italic stay flagged as high** (accessibility, search, broken rendering). A pack can opt in with `fake_bold: allow`: then low per use, medium above 3 words or on a whole line. Never on by default.
 - **Plume never posts.** Most platforms only allow automated posting through approved apps, and the user's account carries the risk.
 - **LinkedIn first in positioning:** examples in the README and on the page lead with LinkedIn, where the demand is. The engine stays multi-platform.
 - **Plain-Python scripts with a YAML subset parser** (`plume_yaml.py`), so they run in the Claude app's code execution without dependencies.

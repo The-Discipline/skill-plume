@@ -8,7 +8,8 @@ Usage (from the skill folder):
 Checks: banned characters, phrases and patterns; invisible characters; stock
 words (flagged, never replaced); specificity; length; paragraph and sentence
 length; rhythm uniformity; lists of three; list items; links; hashtags; emojis;
-Markdown on platforms that do not render it; character limit; visible hook.
+Markdown on platforms that do not render it; list markers and glyphs; fake bold;
+character limit; visible hook.
 """
 import argparse
 import json
@@ -23,7 +24,11 @@ import merge_profile  # noqa: E402
 EMOJI = re.compile("[\U0001F300-\U0001FAFF\U00002600-\U000027BF\U0001F1E6-\U0001F1FF]")
 URL = re.compile(r"https?://\S+|www\.\S+")
 HASHTAG = re.compile(r"(?<![\w&])#[\wÀ-ſ]+")
-LIST_ITEM = re.compile(r"^\s*(?:[-*•]|\d+[.)])\s+")
+GLYPH_RANGES = "\u2022\u2023\u2043\u2190-\u21FF\u2460-\u24FF\u25A0-\u25FF\u2700-\u27BF"
+LIST_ITEM = re.compile(r"^\s*(?:[-*" + GLYPH_RANGES + r"]|\d+[.)])\s+")
+MARKER = re.compile(r"^\s*([-*" + GLYPH_RANGES + r"]|\d+[.)])\s+")
+DECOR = re.compile("[" + GLYPH_RANGES + "]")
+FAKE_RUN = re.compile("[\U0001D400-\U0001D7FF]+")
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z\u00C0-\u00DD\"'\u00AB(\[*_])")
 TRIPLET = re.compile(r"\b[\w'À-ſ-]+(?: [\w'À-ſ-]+)?, [\w'À-ſ-]+(?: [\w'À-ſ-]+)?,? (?:and|or|et|ou) [\w'À-ſ-]+", re.I)
 MARKDOWN = [
@@ -109,6 +114,8 @@ def lint(text, profile):
     rules = profile.get("lint") or {}
     findings = []
     lines = text.splitlines()
+    gl = profile.get("glyphs") or {}
+    fake_words = 0
 
     # Banned characters, phrases, patterns (line by line)
     chars = [char_of(c) for c in rules.get("banned_chars") or []]
@@ -141,8 +148,57 @@ def lint(text, profile):
         if inv:
             codes = ", ".join(sorted({f"U+{ord(c):04X}" for c in inv}))
             find(findings, "high", "invisible_char", f"{len(inv)} invisible character(s) ({codes}): remove before publishing", n)
-        if FAKE_BOLD.search(line):
-            find(findings, "high", "fake_bold", "Unicode mathematical letters used as fake bold or italic", n, line.strip()[:120])
+        fake = FAKE_RUN.findall(line)
+        if fake:
+            fake_words += len(fake)
+            if gl.get("fake_bold") == "allow":
+                whole = sum(len(r) for r in fake) >= 0.6 * len(re.sub(r"\s", "", line))
+                sev = "medium" if whole else "low"
+                why = "a whole line in fake bold or italic" if whole else "fake bold or italic (allowed in your pack): never on a word people search for"
+                find(findings, sev, "fake_bold", why, n, line.strip()[:120])
+            else:
+                find(findings, "high", "fake_bold", "Unicode mathematical letters used as fake bold or italic: screen readers and search can't read them", n, line.strip()[:120])
+
+    # Fake bold budget
+    if gl.get("fake_bold") == "allow" and fake_words > (gl.get("fake_bold_max_words") or 3):
+        find(findings, "medium", "fake_bold", f"{fake_words} words in fake bold or italic, above {gl.get('fake_bold_max_words') or 3}")
+
+    # List markers and glyphs
+    lib = {char_of(c) for c in gl.get("library") or []}
+    mine = {char_of(gl.get(k)) for k in ("list_marker", "arrow") if gl.get(k)}
+    mine |= {char_of(c) for c in gl.get("allowed") or []}
+    marker_want = char_of(gl.get("list_marker")) if gl.get("list_marker") else None
+    numbered_want = gl.get("numbered")
+    bullets, numbers = {}, {}
+    for n, line in enumerate(lines, 1):
+        m = MARKER.match(line)
+        if m:
+            tok = m.group(1)
+            if tok[0].isdigit():
+                numbers.setdefault("1" + tok[-1], n)
+            else:
+                bullets.setdefault(tok, n)
+    if len(bullets) > 1:
+        find(findings, "medium", "list_markers", "mixed list markers: " + " ".join(sorted(bullets)), min(bullets.values()))
+    if len(numbers) > 1:
+        find(findings, "low", "list_markers", "mixed numbering styles: " + " ".join(sorted(numbers)), min(numbers.values()))
+    plain_text = plat and not gl.get("native_lists")
+    if gl.get("native_lists"):
+        typed = [b for b in bullets if b not in "-*"]
+        if typed:
+            find(findings, "low", "list_markers", f"this platform renders real lists: use '- ' instead of {' '.join(typed)}", bullets[typed[0]])
+    elif plain_text:
+        for b, n in bullets.items():
+            if marker_want and b != marker_want:
+                find(findings, "low", "list_markers", f"list marker '{b}', your marker is '{marker_want}'", n)
+        for k, n in numbers.items():
+            if numbered_want and k != numbered_want:
+                find(findings, "low", "list_markers", f"numbering '{k}', yours is '{numbered_want}'", n)
+    for n, line in enumerate(lines, 1):
+        body = line[MARKER.match(line).end():] if MARKER.match(line) else line
+        odd = sorted({c for c in DECOR.findall(body) if c not in mine})
+        if odd:
+            find(findings, "low", "glyphs", f"glyph {' '.join(odd)} is not in your glyphs: add it to allowed or remove it", n, line.strip()[:120])
 
     # Stock words: flagged with their line, never replaced
     allow = {a.lower() for a in rules.get("stock_words_allow") or []}
@@ -244,7 +300,8 @@ def lint(text, profile):
     tags = HASHTAG.findall(text)
     if rules.get("max_hashtags") is not None and len(tags) > rules["max_hashtags"]:
         find(findings, "low", "hashtags", f"{len(tags)} hashtags, above {rules['max_hashtags']}", quote=" ".join(tags[:6]))
-    if rules.get("emojis") is False and EMOJI.search(text):
+    no_glyphs = "".join(c for c in text if c not in lib and c not in mine)
+    if rules.get("emojis") is False and EMOJI.search(no_glyphs):
         find(findings, "medium", "emojis", "emojis present, not allowed for this format")
 
     # Rendering

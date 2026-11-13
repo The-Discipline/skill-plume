@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1 (2026-11-13)
+- Glyph library (`glyphs.md`): typed list markers, arrows and symbols for plain-text platforms, each with what screen readers announce.
+- Pack choice in `formats.md` under `glyphs`: list marker, numbering, arrow, allowed symbols, globally or per platform.
+- Lint: mixed list markers, markers that differ from yours, typed markers on platforms with real lists, symbols outside your choice. Library glyphs no longer count as emojis.
+- Fake bold and italic: still high by default; opt-in `fake_bold: allow` makes it low per use, medium above 3 words or on a whole line.
+- Writer and repurpose use real lists where the platform renders them, your marker elsewhere.
+- Example pack uses ▸ with ✓ and ✗ allowed. Tests cover the glyph checks and the opt-in.
+
 ## 0.3.0 (2026-11-13)
 - Lint: invisible characters (zero-width spaces, soft hyphens, byte order marks) flagged as high.
 - Lint: stock words in English and French (`stock-words.md`), flagged per line, never replaced; a medium finding above `max_stock_words`. Users allow their own words with `stock_words_allow`.

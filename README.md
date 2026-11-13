@@ -57,7 +57,7 @@ flowchart LR
 - **Editor:** one round of minimal fixes
 - **Judge:** picks between two versions without knowing which one is the revision
 
-The **lint** is a script, not an agent: banned characters and phrases, invisible characters, AI tells ("not X, it's Y", generic openers, reflex questions), stock words in English and French (flagged, never replaced), too few concrete details (names, numbers, quotes), rhythm uniformity, lists of three, paragraph length, Markdown where the platform doesn't render it, hashtag and link counts. It lists findings; it doesn't give a score.
+The **lint** is a script, not an agent: banned characters and phrases, invisible characters, AI tells ("not X, it's Y", generic openers, reflex questions), stock words in English and French (flagged, never replaced), too few concrete details (names, numbers, quotes), rhythm uniformity, lists of three, paragraph length, Markdown where the platform doesn't render it, hashtag and link counts. It also checks list markers and symbols against your choice for plain-text platforms (`glyphs.md`: one marker style per piece, real lists where the platform renders them), and flags fake bold or italic made of Unicode letters unless your pack opts in. It lists findings; it doesn't give a score.
 
 Every output ends with "show the work": the lint report, each critique, the editor's changes and the judge's choice.
 
@@ -82,7 +82,7 @@ Your pack lives outside the skill, so updates never overwrite it:
 - `lexicon.md`: your expressions and signature lines
 - `audiences.md`: the specific readers the Reader critic plays
 - `facts.md`: offers, prices, links, proof. The only source for claims.
-- `formats.md`: your overrides (shorter posts, extra bans, signatures per platform)
+- `formats.md`: your overrides (shorter posts, extra bans, signatures per platform, your list marker and symbols)
 - `examples/`: pieces you published, indexed by format and language. Three are enough to start (a "thin pack", and outputs say so); 10 to 15 is where it gets close.
 - `learn-log.md`: the updates you accepted, with their evidence
 
@@ -132,7 +132,7 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.3.0, untested on real briefs.**
+**v0.3.1, untested on real briefs.**
 - Built: skill and modes, 9 families, 7 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet

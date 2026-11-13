@@ -117,11 +117,20 @@ def merge(family, platform=None, pack=None):
     if platform and enabled_p and platform not in enabled_p:
         warnings.append(f"platform '{platform}' is not in the user's enabled_platforms")
 
+    # Glyphs: library defaults < user's global choice < user's choice for this platform
+    gdata, _ = plume_yaml.read(os.path.join(SKILL_DIR, "glyphs.md"))
+    glyphs = deep_merge(gdata.get("defaults") or {}, overrides.get("glyphs") or {}, set(), forbidden, warnings, "glyphs.", top=False)
+    glyphs = deep_merge(glyphs, plat_over.get("glyphs") or {}, set(), forbidden, warnings, f"platforms.{platform}.glyphs.", top=False)
+    glyphs["library"] = [g.get("char") for g in (gdata.get("library") or {}).values() if g.get("char")]
+    markdown = ((plat or {}).get("rendering") or {}).get("markdown")
+    glyphs["native_lists"] = markdown in (gdata.get("native_lists") or [])
+
     signatures = overrides.get("signatures") or {}
     return {
         "family": fam,
         "platform": plat,
         "lint": lint,
+        "glyphs": glyphs,
         "signatures": signatures,
         "sources": {"family": fam_src, "platform": plat_src, "pack": pack},
         "warnings": warnings,

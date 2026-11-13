@@ -23,7 +23,8 @@ lint:
 # LinkedIn
 
 - Posts render plain text only: no Markdown, no headings. Line breaks are kept.
-- Never use Unicode "bold" or "italic" letters to fake formatting. Screen readers read them letter by letter, and search does not index them.
+- Lists are typed: the user's list marker from `glyphs.md`, numbering as plain `1.`.
+- Unicode "bold" or "italic" letters are flagged as high: screen readers read them letter by letter, and search does not find those words. A pack can opt in for a few words (`fake_bold: allow`, see `glyphs.md`).
 - The hook must work before the "see more" cut. Fill `truncation_chars` once verified; until then the lint shows the opening lines for review instead of checking a number.
 - Carousels use the `slides` family. The caption uses the `post` family rules.
 - Limits are left `null` on purpose. Verify them against LinkedIn's current help pages and set `last_checked`.

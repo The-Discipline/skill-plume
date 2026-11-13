@@ -75,7 +75,7 @@ With code execution, run from this skill's folder:
 ```
 python3 scripts/merge_profile.py --family <family> --platform <platform> --pack <pack-dir>
 ```
-It returns the merged profile as JSON and lists ignored overrides (locked or forbidden fields). Without code execution, read the family file, the platform file and the pack's `formats.md`, and apply the same precedence by hand.
+It returns the merged profile as JSON, including the user's glyphs for this platform (`glyphs.md`), and lists ignored overrides (locked or forbidden fields). Without code execution, read the family file, the platform file and the pack's `formats.md`, and apply the same precedence by hand.
 
 Load only what this run needs: one family, one platform, the roles used, at most 5 examples.
 

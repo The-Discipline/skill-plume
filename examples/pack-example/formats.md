@@ -8,10 +8,13 @@ families:
 lint:
   banned_chars+: ["U+2013"]
   banned_phrases+: ["seamless", "delightful experience", "game-changer"]
+glyphs:
+  list_marker: "▸"
+  allowed: ["✓", "✗"]
 signatures:
   linkedin_en: "Léa, UX designer for SaaS onboarding."
 ---
 
 # Formats
 
-Fictional example pack. Shorter posts than the default, en dash banned, three banned phrases.
+Fictional example pack. Shorter posts than the default, en dash banned, three banned phrases, ▸ as list marker, ✓ and ✗ allowed.

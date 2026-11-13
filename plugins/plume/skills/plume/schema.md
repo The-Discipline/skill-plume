@@ -3,7 +3,7 @@ version: 1
 locked: [name, kind, version]
 forbidden: [tone, voice, style, persona, personality]
 family_fields: [name, kind, version, description, reader_situation, structure, hook_default, hook_rule, cta_by_intent, length, slides, lists, extra_critics, lint]
-platform_fields: [name, kind, version, last_checked, families, limits, rendering, conventions, community_rules, register_default, lint]
+platform_fields: [name, kind, version, last_checked, families, limits, rendering, conventions, community_rules, register_default, lint, glyphs]
 engine_lint:
   banned_chars: ["U+2014"]
   banned_phrases: []
@@ -81,6 +81,7 @@ Frontmatter with:
 - `lint:` global additions (`banned_chars`, `banned_phrases`, `patterns`, `stock_words`) and `stock_words_allow`, the stock words you really use
 - `enabled_families`, `enabled_platforms`: optional lists
 - `signatures:` map of `<platform>_<language>` to the signature block
+- `glyphs:` list marker, numbering, arrow, allowed symbols and the fake bold opt-in (see `glyphs.md`). Also per platform: `platforms: linkedin: glyphs:`
 
 Merge rules:
 - Field by field, recursively. An override of `length.max_words` keeps `length.min_words`.
