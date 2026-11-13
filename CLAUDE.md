@@ -71,6 +71,14 @@ A writing assistant skill that writes in the user's own voice. It replaces the o
 - A free Notion "Plume pack" template ships with the page: it mirrors the pack files and links Plume to the owner's Notion business.
 - Order: pack #1, real runs, Notion pack template, then the page.
 
+## Onboarding and content plan (Nov 2026)
+
+- Order: the owner builds his own pack first, then 3 to 5 freelancers he knows test setup. Watch where they stop, time to a first usable draft, and edit distance. A drop during setup is a setup problem.
+- Entry points: people with published posts (quick start), people with a voice guide (import, compared with their posts), people who never published (neutral voice, labelled, come back after five posts).
+- Channels: the Plume page, a 2-minute video from a real run, the Notion template with one guiding question per section, a paid workshop ("your voice pack in 90 minutes"), the Claude artifact builder later.
+- A guide, written after the owner's own pack, from his own case: "Pourquoi votre charte éditoriale ne marche pas avec l'IA" (English version later, linked from the Plume page). Outline: the problem; why (guides describe how you want to sound, with adjectives an AI can't use); what works (examples before rules, convictions, forbidden vs avoid, conventions); building it in 30 minutes from published pieces; keeping it alive with learn mode; going further (Notion template, then Plume). The guide explains; templates and Plume do: short excerpts only, never a copy of the templates.
+- Avoid: long questionnaires, the 10-file blueprint, asking people to describe their voice, more than 10 minutes before a first draft.
+
 ## Release test checklist
 
 On every platform marked supported or expected:
