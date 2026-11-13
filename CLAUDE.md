@@ -45,6 +45,15 @@ A writing assistant skill that writes in the user's own voice. It replaces the o
 - **Description order:** use case and trigger words first, tagline last. Hosts shorten descriptions when many skills are installed.
 - **Repo name:** `skill-plume`, in a series with `skill-prism`. No verb for the command ("plumatize" rejected): Plume has several modes, so the mode is the verb (`/plume:write`, `/plume:edit`).
 
+## Landing page (goua.la)
+
+- Standalone page in English, built from the Prismatize page structure and the goua.la design system. Links to Prism, no shared skills page.
+- Built only after real runs. No sample proof: the proof section is the owner's own before/after (generic AI draft, Plume draft, published version) with its edit distance.
+- The owner's voice is the demo (dogfooding in public).
+- Signature ideas to show: the critics' blind spots as a who-sees-what grid, and one draft where lint flags, critic notes, the editor's diff and the judge's pick appear in turn.
+- A free Notion "Plume pack" template ships with the page: it mirrors the pack files and links Plume to the owner's Notion business.
+- Order: pack #1, real runs, Notion pack template, then the page.
+
 ## Release test checklist
 
 On every platform marked supported or expected:
@@ -72,6 +81,7 @@ On every platform marked supported or expected:
 - Build the owner's pack from the Writer and Critic projects (pack #1) with `setup` mode.
 - Migrate the Noctursus voice skill into a Plume pack.
 - Eval set: 10 to 20 real past briefs with published finals (`evals/`).
+- Notion "Plume pack" template: how Plume reads it (Notion connector vs export to Markdown), and whether it doubles as the examples corpus below.
 - Notion database as the examples corpus (fields: family, platform, language, topic, date, AI draft, final, edit distance) instead of a folder.
 - Optional: run the Reader on another model family through an API in Claude Code, for real independence.
 - A `document` family (proposals, case studies) if the owner needs it.
