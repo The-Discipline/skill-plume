@@ -105,6 +105,10 @@ From the review of linkedin-agent-skill (Nov 2026, ideas kept are credited in th
 
 ## Open questions
 
+- **Ways to build a pack, as options (owner: give people choices, not one tool).** All produce the same pack format (`templates/`, `schema.md`), which stays the single contract:
+  - Markdown files, by hand or with `setup` in any assistant (reference, works everywhere)
+  - a Notion template (the owner's funnel)
+  - proposed: a Claude artifact builder. A form collects pieces and answers; with the viewer's Claude account it can draft the pack (`sample` capability, viewer pays, consent on first use) and hand it over as files (`downloads`). Without AI access it still exports the material for `setup`. Risk: its extraction prompt must come from `modes/setup.md`, not a second copy.
 - Grey matter as the shared business source for Plume and Prism: its format, where it lives (Notion, Markdown), and how each skill reads it.
 
 - License (Prism is MIT).
