@@ -13,8 +13,9 @@ A writing assistant skill for people who publish under their own name. Plume dra
 - **Edits** your own draft with minimal changes, without smoothing your style
 - **Repurposes** one source into several formats (an article into a LinkedIn post and a carousel)
 - **Reviews** a text and gives prioritised findings, without rewriting
+- **Checks for repetition:** if you already published on the same subject, it says so and asks for a new angle or a follow-up
 - **Learns** from what you actually published: it compares its draft with your final version and proposes updates to your pack, which you approve one by one
-- **Sets up** your voice pack, or imports the voice bible you already have
+- **Sets up** your voice pack: it extracts your voice from pieces you published, asks at most five questions for what it can't extract, and imports the voice bible or business data you already have
 
 ## What it doesn't do
 
@@ -77,8 +78,8 @@ Platform limits (character counts, "see more" cut-offs) are left empty until ver
 
 Your pack lives outside the skill, so updates never overwrite it:
 
-- `voice.md`: who you are, what you believe, how you sound
-- `anti-patterns.md`: what never appears, with weak and strong examples
+- `voice.md`: who you are, your convictions (what you believe, what you push back on, what you want to own), how you sound, your conventions (language variety, contractions, capitals, emojis, numbers)
+- `anti-patterns.md`: what is forbidden (blocked) and what to avoid (flagged), with weak and strong examples
 - `lexicon.md`: your expressions and signature lines
 - `audiences.md`: the specific readers the Reader critic plays
 - `facts.md`: offers, prices, links, proof. The only source for claims.
@@ -132,7 +133,7 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.3.1, untested on real briefs.**
+**v0.4.0, untested on real briefs.**
 - Built: skill and modes, 9 families, 7 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet

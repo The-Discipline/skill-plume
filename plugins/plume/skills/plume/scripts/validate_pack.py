@@ -18,6 +18,12 @@ PLACEHOLDER = re.compile(r"\{[^}]+\}|TODO|TO FILL", re.I)
 INDEX_LINE = re.compile(r"^-\s*([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|([^|]+)\|\s*(\S+)\s*$")
 
 
+# Sections setup creates; a pack can still work without them, so they are notes, not problems.
+SECTIONS = {
+    "voice.md": ["Convictions", "Conventions"],
+    "anti-patterns.md": ["Forbidden", "Avoid"],
+}
+
 THIN = 5      # below this many indexed examples, the pack is "thin"
 MINIMUM = 3   # below this, voice matching is unreliable
 
@@ -47,6 +53,9 @@ def check(pack):
         _, body = plume_yaml.frontmatter(text)
         if len(body.strip()) < 40 and name not in ("learn-log.md",):
             (problems if required else notes).append(f"{name} is nearly empty")
+        for sec in SECTIONS.get(name, []):
+            if not re.search(r"^#+\s*" + sec + r"\b", body, re.M | re.I):
+                notes.append(f"{name}: no '{sec}' section (see templates/{name})")
         left = len(PLACEHOLDER.findall(body))
         if left:
             notes.append(f"{name}: {left} template placeholders still to fill")

@@ -8,6 +8,7 @@ families:
 lint:
   banned_chars+: ["U+2013"]
   banned_phrases+: ["seamless", "delightful experience", "game-changer"]
+  stock_words+: ["users"]
 glyphs:
   list_marker: "▸"
   allowed: ["✓", "✗"]

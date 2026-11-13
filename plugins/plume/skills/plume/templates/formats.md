@@ -12,6 +12,7 @@ platforms:
 lint:
   banned_chars+: ["U+2013"]
   banned_phrases+: []
+  stock_words+: []
   stock_words_allow: []
 glyphs:
   list_marker: "•"

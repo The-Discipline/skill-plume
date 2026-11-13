@@ -30,6 +30,8 @@ Look in this order and stop at the first complete source:
 3. A Notion page titled "Plume pack" (or the page the user names), through the Notion connector
 4. The conversation
 
+The pack is about voice. Business data (offers, prices, readers, positioning) may live in a separate source: a "Grey matter" / "Matière grise" Notion page or a Prism context file. Setup imports from it; when `facts.md` says a line comes from a source older than three months, mention it once.
+
 If code execution is available, run `python3 scripts/validate_pack.py <pack-dir>` from this skill's folder and report gaps in one line. If a script fails to run on this platform, say so once and apply the same checks by reading, labelled "lint done by the model".
 
 No pack: offer `setup` mode (section 1), including its quick start from three published pieces. If the user declines, write in **no-pack mode**: family and platform rules only, output labelled "No voice pack: generic voice."

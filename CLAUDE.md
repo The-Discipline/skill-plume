@@ -46,6 +46,11 @@ A writing assistant skill that writes in the user's own voice. It replaces the o
 - **Bio family:** LinkedIn headline and About, directory and freelance platform profiles, speaker and author bios. Separate from `page`: a different reader situation (comparing profiles in seconds) and versions by length.
 - **Glyphs (`glyphs.md`):** a short library of typed symbols with what screen readers announce. The user picks a list marker, numbering, arrow and allowed symbols in `formats.md`, globally or per platform. Real lists where the platform renders them, typed markers elsewhere; repurpose converts. One marker style per piece.
 - **Fake bold and italic stay flagged as high** (accessibility, search, broken rendering). A pack can opt in with `fake_bold: allow`: then low per use, medium above 3 words or on a whole line. Never on by default.
+- **Setup extracts first, asks last** (v0.4). People describe how they wish they sounded; published pieces show how they sound. Setup drafts voice, lexicon and anti-patterns from the pieces (comments included), then asks five questions at most, only for what can't be extracted.
+- **Voice pack sections (v0.4):** Convictions in `voice.md` (believe, push back on, subjects to own: angles argue from them, never from opinions the user hasn't stated), Conventions in `voice.md` (language variety, contractions, capitals, emojis, numbers), Forbidden (lint blocks) vs Avoid (lint flags) in `anti-patterns.md`. The validator notes missing sections.
+- **Repetition check before angles:** compare the raw material with published topics; if close, say so and ask for a new angle, a follow-up, or go ahead.
+- **Business data can live outside the pack** (Grey matter / Matière grise, Prism context file). Setup imports offers, readers and positioning from it with source and date, and never asks again for what it says. Plume and Prism should read the same business source rather than each keep a copy.
+- **No separate voice-bible builder skill.** Setup is the builder; two skills owning one pack format would drift.
 - **Plume never posts.** Most platforms only allow automated posting through approved apps, and the user's account carries the risk.
 - **LinkedIn first in positioning:** examples in the README and on the page lead with LinkedIn, where the demand is. The engine stays multi-platform.
 - **Plain-Python scripts with a YAML subset parser** (`plume_yaml.py`), so they run in the Claude app's code execution without dependencies.
@@ -76,6 +81,12 @@ On every platform marked supported or expected:
 
 ## Rejected ideas
 
+From a 10-file "brand writing skill" blueprint (Nov 2026; kept: evidence over identity, forbidden vs avoid, conventions, convictions, repetition check):
+- Ten knowledge files: nobody fills them. Positioning, editorial strategy and product knowledge are business data, not voice.
+- Adjusting tone per platform: the platform changes the format, never the voice.
+- Self-review by the writer: it shares the writer's blind spots. Critics with less context instead.
+- Best-performing content as a resource: engagement as a target pushes toward bait (see above).
+
 From the review of linkedin-agent-skill (Nov 2026, ideas kept are credited in the README):
 - Hook formula libraries: they make every post sound the same. Angles come from the user's material.
 - A 0-100 "human" score: see locked decisions.
@@ -92,6 +103,8 @@ From the review of linkedin-agent-skill (Nov 2026, ideas kept are credited in th
 - Names: Timbre (existing skill, and "timbré" means crazy), Cadence (existing skill), Encre (unpronounceable in English), Signet and Grain (owner chose Plume).
 
 ## Open questions
+
+- Grey matter as the shared business source for Plume and Prism: its format, where it lives (Notion, Markdown), and how each skill reads it.
 
 - License (Prism is MIT).
 - Verify platform limits (LinkedIn truncation and character limit, others) and set `last_checked`.

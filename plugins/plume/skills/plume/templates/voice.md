@@ -1,12 +1,15 @@
 # Voice
 
-Who you are when you write. Written in the first person. Plume's writer reads this before every piece.
+Who you are when you write. Written in the first person. Plume's writer reads this before every piece. Setup drafts it from your published pieces first; you correct what it got wrong.
 
 ## Who I am, in two or three sentences
 {who you are, what you do, for whom}
 
-## What I believe
-{the positions you hold and defend, one per line}
+## Convictions
+What you argue from. Without this, the writer has nothing to defend.
+- What I believe: {positions you hold and defend, one per line}
+- What I push back on: {common beliefs in your field you disagree with, and why in one line}
+- Subjects I want to own: {two to four topics you want to be known for}
 
 ## How I sound
 - Register: {direct, warm, dry, formal...}
@@ -20,5 +23,10 @@ Who you are when you write. Written in the first person. Plume's writer reads th
 ## What I keep even if it looks "wrong"
 {deliberate irregularities to preserve: non-native constructions, spoken turns of phrase, punctuation habits}
 
-## Languages
-{languages you write in, and anything that changes between them}
+## Conventions
+- Languages and variety: {e.g. French, and British or American English}
+- Contractions: {yes, no, depends on the language}
+- Capitals: {sentence case or title case in titles}
+- Emojis: {never, in comments only, as list markers...}
+- Numbers: {digits always, or words below ten}
+- Other: {inclusive writing, spelling choices, brand names written a certain way}

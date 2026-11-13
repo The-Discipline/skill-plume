@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0 (2026-11-13)
+- Setup extracts first: voice, lexicon and anti-patterns are drafted from published pieces (comments included), then five questions at most for what can't be extracted.
+- Setup imports business data (offers, readers, positioning) from an existing source: a Grey matter / Matière grise Notion page, a Prism context file, the user's site. Each imported line keeps its source and date.
+- `voice.md` template: Convictions (believe, push back on, subjects to own) and Conventions (language variety, contractions, capitals, emojis, numbers).
+- `anti-patterns.md` template: Forbidden (lint blocks) vs Avoid (lint flags, with the preferred word).
+- Write mode: repetition check against published topics before the angles. Angle finders receive the convictions and the close topics.
+- Validator notes missing Convictions, Conventions, Forbidden and Avoid sections.
+- Example pack updated to the new sections.
+
 ## 0.3.1 (2026-11-13)
 - Glyph library (`glyphs.md`): typed list markers, arrows and symbols for plain-text platforms, each with what screen readers announce.
 - Pack choice in `formats.md` under `glyphs`: list marker, numbering, arrow, allowed symbols, globally or per platform.

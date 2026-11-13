@@ -2,19 +2,26 @@
 
 Build a user pack, or import an existing voice bible.
 
-**Quick start** (the user wants to try Plume now): ask for three pieces they published and are happy with, who they write for, and their main offer with its link. Draft `voice.md` and `anti-patterns.md` from the three pieces, every line marked "inferred, to confirm". Fill `audiences.md` and `facts.md` with only what they said, index the three pieces, validate, and start writing. The pack is thin: learn mode grows it with each piece they publish.
+**Extract first, ask last.** People describe how they wish they sounded; their published pieces show how they actually sound. So setup drafts everything it can from what the user published, and asks only for what can't be extracted: convictions, facts, readers, bans. Five questions at most, in one message.
+
+**Business data already written somewhere?** Before asking about offers, prices, readers or positioning, look for a business source and import from it: a "Grey matter" / "Matière grise" page in Notion, a Prism context file (`prismatize-context.md`), an offers page on the user's site, or a document the user names. Copy what Plume needs into `audiences.md` and `facts.md`, each line ending with "(from {source}, {date})", and the source's positioning into the Convictions draft, marked "to confirm". Never ask again for what the source already says.
+
+**Quick start** (the user wants to try Plume now): ask for three pieces they published and are happy with, who they write for, and their main offer with its link (skip what a business source already gives). Draft `voice.md` and `anti-patterns.md` from the three pieces, every line marked "inferred, to confirm". Fill `audiences.md` and `facts.md` with only what they said, index the three pieces, validate, and start writing. The pack is thin: learn mode grows it with each piece they publish.
 
 **Full setup:**
 
-1. **Ask for material:**
-   - at least 3 published pieces, ideally 10 to 15 across the families the user writes most
+1. **Collect material, in one message:**
+   - at least 3 published pieces, ideally 10 to 15 across the families the user writes most. Comments and replies count: they show how the user talks, not only how they post.
    - any existing voice guide, style guide, anti-pattern list or prompt they already use
-   - who they write for
-   - their site, offers and booking link
+   - where their business data lives (see above), or their site, offers and booking link
 2. **Import existing documents** into the template structure (`templates/`) without rewriting the user's words. Deduplicate, and list conflicts between documents for the user to settle instead of choosing silently.
-3. **Draft from the examples** what the documents do not cover: recurring constructions, rhythm, vocabulary. Mark everything inferred as "inferred, to confirm".
-4. **Audiences:** one to three specific personas.
-5. **Facts:** only what the user provides or what is on their live site. No guessing prices or results.
+3. **Extract from the pieces**, every line marked "inferred, to confirm":
+   - `voice.md`: how they sound, what they always do, what they keep even if it looks wrong, Conventions (language variety, contractions, capitals, emojis, numbers)
+   - `lexicon.md`: recurring expressions and signature lines
+   - `anti-patterns.md`: what never appears in their pieces, as candidates for Forbidden or Avoid
+   - Convictions they state openly in the pieces
+4. **Ask what's left, five questions at most:** pick from convictions they haven't written down, what they push back on, the subjects they want to own, their readers (one to three specific personas), what is forbidden versus only to avoid, and missing facts. Skip any question the pieces or the business source already answer.
+5. **Facts:** only what the user provides, the business source says, or their live site shows. No guessing prices or results.
 6. **formats.md:** enabled families and platforms, signatures, the mechanical bans as lint rules.
 7. **Examples:** save each piece under `examples/` and index it.
 8. **Validate** with `python3 scripts/validate_pack.py <pack>` and show the remaining gaps.
