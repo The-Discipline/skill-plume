@@ -106,7 +106,10 @@ Not an agent: a script. Banned characters and phrases, AI tells ("not X, it's Y"
 
 **The metaphor: the draft and the margin.** A page of your writing, and in the margin, notes from readers who each see only part of the picture. The lint is a highlighter, the critics are margin notes, the editor is a small strike-through, the judge is a choice between two pages. Prism's story is "in, split, recombine". Plume's story is **write, mark, keep**.
 
-Avoid the literal quill: it's the first image anyone would pick, it looks old, and it says "calligraphy" more than "publishing on LinkedIn".
+**The cover (chosen, Nov 2026).** A monumental luminous feather standing upright in a dusk landscape, a small figure on a path of light that leads to it. It works because it's a feather, not a quill: no ink pot, no calligraphy, no old paper. The scale says "your voice, bigger than you thought", the path says "you get there by walking, one piece at a time".
+- Keep feathers in this register: monumental, lit, alone. Never a quill with an ink pot.
+- The cover's warm light echoes the lint highlighter yellow; the dusk sky sits close to goua.la purple.
+- In the hero, keep the figure and the light path visible: they carry the meaning.
 
 **Link with goua.la.** The goua.la logo uses four shapes: circle, square, triangle, cross. Prism took the triangle. Two candidates for Plume:
 - **The circle (recommended):** the ink dot, the full stop at the end of a sentence you'd publish. Simple, and it leaves the cross for a future product.
