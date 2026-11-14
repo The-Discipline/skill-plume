@@ -6,6 +6,7 @@ Context for any Claude Code session working on this repo. Read it fully before c
 
 **Every change updates the documentation in the same commit:**
 - `README.md`: what it does, what it doesn't, who it's for, how it works, formats, install, and the **Status** section
+- `docs/getting-started.md`: the user guide, whenever a change affects what users see or do
 - `CHANGELOG.md`: a new entry
 - this file: new decisions, rejected ideas, open questions
 - the version in `plugins/plume/.claude-plugin/plugin.json`

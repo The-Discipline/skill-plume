@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.5 (2026-11-15)
+- Docs: `docs/getting-started.md`, the user guide: first run, raw material, reading the output and show the work, learn mode and edit distance, modes, the voice pack, troubleshooting. Linked from the README.
+- README: install commands point to The-Discipline/skill-plume.
+
 ## 0.4.4 (2026-11-14)
 - Review fixes. Setup: first run and quick start merged into one flow, no instruction given twice; "come back after three posts", matching the thin-pack threshold.
 - SKILL.md: explicit call moved to the top; pack loading split into where, format, updates and scripts.

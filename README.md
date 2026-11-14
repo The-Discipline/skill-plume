@@ -91,6 +91,9 @@ Keep it wherever your assistant can read: attached files, a `plume-pack/` folder
 
 ## Install
 
+After installing, read [Getting started](docs/getting-started.md): your first run, reading the output, and the habit that makes drafts closer.
+
+
 **Claude app (web, desktop, mobile)**
 1. Download `plume.zip` from the latest release.
 2. In Claude: Customize > Skills > "+" > Create skill > Upload a skill.
@@ -98,7 +101,7 @@ Keep it wherever your assistant can read: attached files, a `plume-pack/` folder
 
 **Claude Code**
 ```bash
-claude plugin marketplace add <owner>/skill-plume
+claude plugin marketplace add The-Discipline/skill-plume
 claude plugin install plume@plume
 ```
 Commands: `/plume` (Plume picks the mode), or a specific mode with `/plume:write`, `/plume:edit`, `/plume:repurpose`, `/plume:review`, `/plume:learn`, `/plume:setup`.
@@ -133,7 +136,7 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.4.4, untested on real briefs.**
+**v0.4.5, untested on real briefs.**
 - Built: skill and modes, 9 families, 7 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet
