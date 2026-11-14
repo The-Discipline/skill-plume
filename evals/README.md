@@ -20,6 +20,6 @@ Keep real sets out of the public repo (`packs/` and `plume-pack/` are ignored by
 1. Run the version to test on every brief.
 2. Compute the edit distance between each output and its published final.
 3. Blind A/B: the user compares the old and new version's output for the same brief without knowing which is which.
-4. Record results in `results.md`: version, family, mean edit distance, A/B wins.
+4. Record results in `results.md` (created with the first eval run): version, family, mean edit distance, A/B wins.
 
 A change ships when it lowers the edit distance or wins the A/B on most pieces, without raising either for any family.

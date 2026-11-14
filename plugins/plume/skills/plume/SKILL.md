@@ -9,6 +9,8 @@ Writes like you, reads like your audience.
 
 Plume turns raw material into a piece in the user's voice, then has it checked by critics who each lack something the writer has: a reader who knows nothing about the author, a voice matcher who only knows the author's published work, a fact checker who only knows the author's sources. One editor applies one round of minimal changes, and a blind judge keeps the better version.
 
+**Explicit call.** Users can call Plume by name: `/plume` or a mode such as `/plume:write` in Claude Code, `@plume` in ChatGPT, `$plume` in Codex. It also triggers from the description.
+
 ## Invariants
 
 These hold in every mode, for every user, and no format or pack can override them.
@@ -27,10 +29,12 @@ These hold in every mode, for every user, and no format or pack can override the
 Look in this order and stop at the first complete source:
 1. Files attached to this request
 2. A `plume-pack/` folder in the workspace, or the project's files named like the templates (`voice.md`, `anti-patterns.md`, `audiences.md`, `facts.md`, `lexicon.md`, `formats.md`, `examples/index.md`)
-3. Any source the platform can reach where the user keeps it: a connected app (Notion, Google Drive, Confluence, OneDrive...), a web page, a repository. Look for the name the user gives, or "Plume pack". The pack's content matters, not its format: one page with sections works as well as separate files, and any readable format works (Markdown, text, Google Doc, Word, PDF). A PDF or an exported document can't be updated in place: when learn mode has changes to write there, offer to convert the pack to Markdown once, keeping the original as a source.
+3. Any source the platform can reach where the user keeps it: a connected app (Notion, Google Drive, Confluence, OneDrive...), a web page, a repository. Look for the name the user gives, or "Plume pack".
 4. The conversation
 
-Where the pack lives decides how Plume updates it: through the same connector when it can write there, otherwise as text the user pastes. Scripts need files: for a pack outside the workspace, copy it into a working folder before running them, or apply the checks by reading.
+- **Format:** content matters, not format. One page with sections works as well as separate files, in any readable format (Markdown, text, Google Doc, Word, PDF).
+- **Updates:** through the same connector when it can write there, otherwise as text the user pastes. A PDF or exported document can't be updated in place: the first time learn mode has changes for it, offer to convert the pack to Markdown once, keeping the original as a source.
+- **Scripts need files:** for a pack outside the workspace, copy it into a working folder before running them, or apply the checks by reading.
 
 The pack is about voice. Business data (offers, prices, readers, positioning) may live in a separate source, in any of the places above: for example a "Grey matter" / "Matière grise" page or a Prism context file. Setup imports from it; when `facts.md` says a line comes from a source older than three months, mention it once.
 
@@ -84,8 +88,6 @@ It returns the merged profile as JSON, including the user's glyphs for this plat
 Load only what this run needs: one family, one platform, the roles used, at most 5 examples.
 
 ## 4. Roles and models
-
-**Explicit call.** Users can call Plume by name: `/plume:write`, `/plume:edit` and the other modes in Claude Code, `@plume` in ChatGPT, `$plume` in Codex. It also triggers from the description.
 
 Role prompts live in `roles/`. Where named agents are available (Claude Code with the Plume plugin), run each with its plugin agent:
 - `plume:angles` (mid-tier): three angles in parallel

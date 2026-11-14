@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.4 (2026-11-14)
+- Review fixes. Setup: first run and quick start merged into one flow, no instruction given twice; "come back after three posts", matching the thin-pack threshold.
+- SKILL.md: explicit call moved to the top; pack loading split into where, format, updates and scripts.
+- Agents: each one works only from its prompt and opens no file, so the critics' blind spots hold even with the Read tool.
+- `scripts/skill_review.py`: release review (frontmatter, sizes, broken file references, versions, repeated instructions, stale words).
+- Docs: identity brief points to v0.4; open question on the Notion template updated; evals note on `results.md`.
+
 ## 0.4.3 (2026-11-13)
 - First run: with no pack, Plume opens with one short message (English and French) asking for three posts, the reader and the offer, writes the requested piece first, then offers to save the pack wherever the user wants.
 - First run: a voice guide is compared with the posts (the posts win until the user decides); people who have never published get a labelled neutral voice and an invitation to come back after five posts.

@@ -24,7 +24,7 @@ French:
 >
 > Deux minutes, et j'écris votre post sur {topic}. Si vous avez déjà un guide de ton ou une charte éditoriale, envoyez-les aussi.
 
-**2. Write first.** Draft the pack from what arrived (quick start, below), keep it in the conversation, and run the requested piece through the normal pipeline. The output ends with "Thin pack: 3 examples".
+**2. Write first.** Build the quick-start pack from what arrived: `voice.md` and `anti-patterns.md` drafted from the three pieces (every line marked "inferred, to confirm"), `audiences.md` and `facts.md` with only what they said, the three pieces indexed. Keep it in the conversation and run the requested piece through the normal pipeline. The output ends with "Thin pack: 3 examples". If they didn't ask for a piece, validate and go to step 3.
 
 **3. Then offer to keep it**, in one message:
 
@@ -39,18 +39,16 @@ French:
 **If they have never published**, say so plainly, and don't fake a voice:
 
 English:
-> I learn your voice from what you've published, and there isn't anything yet. I can write this one in a neutral voice, labelled as such. After five posts, come back for setup: the drafts will start sounding like you.
+> I learn your voice from what you've published, and there isn't anything yet. I can write this one in a neutral voice, labelled as such. After three posts, come back for setup: the drafts will start sounding like you.
 
 French:
-> J'apprends votre voix à partir de ce que vous avez publié, et il n'y a encore rien. Je peux écrire celui-ci dans une voix neutre, signalée comme telle. Après cinq posts, revenez pour la configuration : les brouillons commenceront à vous ressembler.
+> J'apprends votre voix à partir de ce que vous avez publié, et il n'y a encore rien. Je peux écrire celui-ci dans une voix neutre, signalée comme telle. Après trois posts, revenez pour la configuration : les brouillons commenceront à vous ressembler.
 
 **Extract first, ask last.** People describe how they wish they sounded; their published pieces show how they actually sound. So setup drafts everything it can from what the user published, and asks only for what can't be extracted: convictions, facts, readers, bans. Five questions at most, in one message.
 
 **Business data already written somewhere?** Before asking about offers, prices, readers or positioning, ask where it lives and import from it, from any source the platform can reach: a connected app (Notion, Google Drive...), an attached file, a web page. Typical ones: a "Grey matter" / "Matière grise" page, a Prism context file (`prismatize-context.md`), an offers page on the user's site. If the platform can't reach it, ask the user to paste or attach it. Copy what Plume needs into `audiences.md` and `facts.md`, each line ending with "(from {source}, {date})", and the source's positioning into the Convictions draft, marked "to confirm". Never ask again for what the source already says.
 
-**Quick start** (the user wants to try Plume now): ask for three pieces they published and are happy with, who they write for, and their main offer with its link (skip what a business source already gives). Draft `voice.md` and `anti-patterns.md` from the three pieces, every line marked "inferred, to confirm". Fill `audiences.md` and `facts.md` with only what they said and index the three pieces. If they came for a piece, write it now and save the pack after (see First run); otherwise validate and save. The pack is thin: learn mode grows it with each piece they publish.
-
-**Full setup:**
+**Full setup** (the user asks to set up properly, or brings more than three pieces). The first-run pack is thin; learn mode grows it with each piece they publish, and full setup can be run on it at any time:
 
 1. **Collect material, in one message:**
    - at least 3 published pieces, ideally 10 to 15 across the families the user writes most. Comments and replies count: they show how the user talks, not only how they post.

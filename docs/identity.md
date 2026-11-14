@@ -1,6 +1,6 @@
 # Plume identity brief
 
-Everything needed to design Plume's logo, visuals, diagrams and landing page. Source of truth: `SKILL.md` v0.3. Sister brief: Prism's `docs/identity.md`.
+Everything needed to design Plume's logo, visuals, diagrams and landing page. Source of truth: `SKILL.md` v0.4. Sister brief: Prism's `docs/identity.md`.
 
 ## 1. Name and taglines
 

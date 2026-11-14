@@ -10,7 +10,7 @@ Context for any Claude Code session working on this repo. Read it fully before c
 - this file: new decisions, rejected ideas, open questions
 - the version in `plugins/plume/.claude-plugin/plugin.json`
 
-Run `scripts/check-style.sh` and `scripts/test.sh` before every commit.
+Run `scripts/check-style.sh` and `scripts/test.sh` before every commit, and `scripts/skill_review.py .` before each release.
 
 ## What Plume is
 
@@ -53,6 +53,7 @@ A writing assistant skill that writes in the user's own voice. It replaces the o
 - **Sources are not tied to a tool.** The pack and the business source can live anywhere the platform reaches (files, any connector, a web page). Notion is one example, never a requirement. Updates go back through the same connector when it can write, otherwise as text to paste.
 - **First run: value before effort.** With no pack, one short message asks for three posts, the reader and the offer (English and French texts in `modes/setup.md`); Plume writes the requested piece first and offers to save the pack after. People who have never published get a neutral voice, labelled, and an invitation to come back after five posts.
 - **No separate voice-bible builder skill.** Setup is the builder; two skills owning one pack format would drift.
+- **Agents work only from their prompt.** Every plugin agent says so in its instructions. They keep `tools: Read` because an empty tool list can stop a subagent from launching (Claude Code docs, Nov 2026); removing Read with `disallowedTools` is the stricter option, to test in Claude Code before shipping. Until then, the critics' blind spots rely on the prompt.
 - **Plume never posts.** Most platforms only allow automated posting through approved apps, and the user's account carries the risk.
 - **LinkedIn first in positioning:** examples in the README and on the page lead with LinkedIn, where the demand is. The engine stays multi-platform.
 - **Plain-Python scripts with a YAML subset parser** (`plume_yaml.py`), so they run in the Claude app's code execution without dependencies.
@@ -125,7 +126,7 @@ From the review of linkedin-agent-skill (Nov 2026, ideas kept are credited in th
 - Build the owner's pack from the Writer and Critic projects (pack #1) with `setup` mode.
 - Migrate the Noctursus voice skill into a Plume pack.
 - Eval set: 10 to 20 real past briefs with published finals (`evals/`).
-- Notion "Plume pack" template: how Plume reads it (Notion connector vs export to Markdown), and whether it doubles as the examples corpus below.
+- Notion "Plume pack" template: Plume can read it like any source (v0.4.1, v0.4.2). Left to decide: its sections and guiding questions, and whether it doubles as the examples corpus below.
 - Notion database as the examples corpus (fields: family, platform, language, topic, date, AI draft, final, edit distance) instead of a folder.
 - Optional: run the Reader on another model family through an API in Claude Code, for real independence.
 - A `document` family (proposals, case studies) if the owner needs it.
