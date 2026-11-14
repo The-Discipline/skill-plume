@@ -19,7 +19,7 @@ from collections import defaultdict
 MODEL_DIRS = ("skills",)          # files under a skills/ folder are read by the model
 MAX_SKILL_LINES = 500             # Anthropic's guidance for SKILL.md bodies
 MAX_DESC = 1024                   # Agent Skills limit for description
-BANNED = {"—": "em dash"}
+BANNED = {"\u2014": "em dash"}
 PATH_RE = re.compile(r"`((?:[\w.-]+/)*[\w.-]+\.(?:md|py|sh|json|yaml|yml|txt))`")
 SENT_RE = re.compile(r"(?<=[.!?])\s+")
 
@@ -147,7 +147,7 @@ def main():
             t = open(os.path.join(repo, p), encoding="utf-8").read()
         except UnicodeDecodeError:
             continue
-        if "check-style" in p:
+        if "check-style" in p or p.endswith("skill_review.py"):
             continue
         shipped = "/templates/" not in p and "check-style" not in p and "stock-words" not in p
         for n, line in enumerate(t.splitlines(), 1):
