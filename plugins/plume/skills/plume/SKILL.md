@@ -1,6 +1,6 @@
 ---
 name: plume
-description: "Writing assistant in the user's own voice. Use to write, draft, rewrite, edit, review, repurpose or adapt a LinkedIn post, article, email, message, comment, carousel or slides, script, page or bio (LinkedIn headline and About, directory profile), or when the user says 'plume', 'write like me', 'make this sound like me', 'écris comme moi'. Also to set up a voice pack or learn from a published version. Not for pure translation, generic copy without a voice pack, or factual questions. Plume: writes like you, reads like your audience, using the user's voice pack and critics that check it as a real reader would."
+description: "Writing assistant in the user's own voice. Use to write, draft, rewrite, edit, review, repurpose or adapt a LinkedIn post, article, email, message, comment, carousel or slides, thread, script, page or bio (LinkedIn headline and About, directory profile), or when the user says 'plume', 'write like me', 'make this sound like me', 'écris comme moi'. Also to set up a voice pack or learn from a published version. Not for pure translation, generic copy without a voice pack, or factual questions. Plume: writes like you, reads like your audience, using the user's voice pack and critics that check it as a real reader would."
 ---
 
 # Plume
@@ -62,8 +62,8 @@ A pasted draft with "improve / fix / tighten" means edit. A topic or notes means
 ## 2. Build the brief
 
 Read `intents.md`. Settle these fields, from the request or by inference:
-- **family:** post, article, email, message, comment, slides, script, page, bio (`families/`)
-- **platform:** linkedin, reddit, slack, teams, whatsapp, blog, email (`platforms/`), or none
+- **family:** post, article, email, message, comment, slides, thread, script, page, bio (`families/`)
+- **platform:** linkedin, instagram, x, threads, reddit, slack, teams, whatsapp, blog, email (`platforms/`), or none
 - **intent:** inform, convince, ask, announce, reply, relationship
 - **language:** the user's request language unless told otherwise
 - **audience:** one reader from the pack's `audiences.md`

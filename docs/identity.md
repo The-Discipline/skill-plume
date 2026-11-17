@@ -95,8 +95,8 @@ Not an agent: a script. Banned characters and phrases, AI tells ("not X, it's Y"
 ### Key numbers
 
 - 7 modes: write, edit, repurpose, review, learn, setup, add-format
-- 9 families: post, article, email, message, comment, slides, script, page, bio
-- 7 platforms: LinkedIn, Reddit, Slack, Teams, WhatsApp, blog, email
+- 10 families: post, article, email, message, comment, slides, thread, script, page, bio
+- 10 platforms: LinkedIn, Instagram, X, Threads, Reddit, Slack, Teams, WhatsApp, blog, email
 - 6 intents: inform, convince, ask, announce, reply, relationship
 - 3 angles, 3 critics, 1 revision round, 1 blind pick
 - 1 call to action at most

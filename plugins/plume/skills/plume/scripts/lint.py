@@ -224,9 +224,10 @@ def lint(text, profile):
     if min_spec and wc_all >= min_w and wc_all and spec * 100 / wc_all < min_spec:
         find(findings, "medium", "specificity", f"{spec} concrete details (names, numbers, quotes) in {wc_all} words: add what you lived, saw or measured")
 
-    # Slides are split on lines containing only ---
+    # Slides and thread parts are split on lines containing only ---
     is_slides = fam.get("name") == "slides"
-    slides = [s.strip() for s in re.split(r"(?m)^\s*---\s*$", text)] if is_slides else []
+    is_thread = fam.get("name") == "thread"
+    slides = [s.strip() for s in re.split(r"(?m)^\s*---\s*$", text)] if (is_slides or is_thread) else []
     slides = [s for s in slides if s]
 
     # Length
@@ -247,6 +248,17 @@ def lint(text, profile):
             wc = len(words(s))
             if sl.get("max_words_per_slide") and wc > sl["max_words_per_slide"]:
                 find(findings, "medium", "slides", f"slide {i}: {wc} words, above {sl['max_words_per_slide']}", quote=s[:80])
+
+    if is_thread:
+        pt = fam.get("parts") or {}
+        if pt.get("min") and len(slides) < pt["min"]:
+            find(findings, "medium", "parts", f"{len(slides)} parts, below {pt['min']}")
+        if pt.get("max") and len(slides) > pt["max"]:
+            find(findings, "medium", "parts", f"{len(slides)} parts, above {pt['max']}")
+        for i, s in enumerate(slides, 1):
+            wc = len(words(s))
+            if pt.get("max_words_per_part") and wc > pt["max_words_per_part"]:
+                find(findings, "medium", "parts", f"part {i}: {wc} words, above {pt['max_words_per_part']}", quote=s[:80])
 
     # Paragraphs
     paras = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip() and not re.fullmatch(r"-{3,}", p.strip())]

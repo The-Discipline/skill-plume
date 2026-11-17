@@ -28,6 +28,9 @@ python3 -I $S/lint.py /tmp/plume-bold.txt --family post | grep -q "\[high\] fake
 python3 -I $S/merge_profile.py --family post > /tmp/plume-prof.json
 python3 -I -c "import json; p=json.load(open('/tmp/plume-prof.json')); p['glyphs']['fake_bold']='allow'; json.dump(p, open('/tmp/plume-prof.json','w'))"
 python3 -I $S/lint.py /tmp/plume-bold.txt --profile /tmp/plume-prof.json | grep -q "\[low\] fake_bold" || { echo "fake bold opt-in not applied"; exit 1; }
+# Thread: parts are counted and each part stays short
+printf 'A promise that works alone.\n\n---\n\nOnly one more part.\n' > /tmp/plume-thread.txt
+python3 -I $S/lint.py /tmp/plume-thread.txt --family thread --platform x | grep -q "parts" || { echo "thread parts check did not fire"; exit 1; }
 python3 -I $S/lint.py $P/examples/2026-08-bio.md --family bio --platform linkedin --pack $P > /dev/null
 python3 -I $S/diff_learn.py examples/test-draft.txt $P/examples/2026-09-onboarding.md > /dev/null
 echo "All script tests passed."

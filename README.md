@@ -65,8 +65,8 @@ Every output ends with "show the work": the lint report, each critique, the edit
 ## Formats
 
 A piece is defined by four things:
-- **Family**, the kind of piece: post, article, email, message, comment, slides, script, page, bio (LinkedIn headline and About, directory profile, speaker bio)
-- **Platform**, where it's published: LinkedIn, Reddit, Slack, Teams, WhatsApp, blog, email
+- **Family**, the kind of piece: post, article, email, message, comment, slides, thread, script, page, bio (LinkedIn headline and About, directory profile, speaker bio)
+- **Platform**, where it's published: LinkedIn, Instagram, X, Threads, Reddit, Slack, Teams, WhatsApp, blog, email
 - **Intent**, what it's for: inform, convince, ask, announce, reply, relationship
 - **Language**
 
@@ -136,8 +136,8 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.4.5, untested on real briefs.**
-- Built: skill and modes, 9 families, 7 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
+**v0.5.0, untested on real briefs.**
+- Built: skill and modes, 10 families, 10 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet
 - Not yet done: a real voice pack, a real run, the eval set, verified platform limits, an OpenAI plugin for ChatGPT web and mobile

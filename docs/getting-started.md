@@ -60,7 +60,7 @@ If the edit distance doesn't go down over a few weeks, the pack needs work: run 
 - **learn:** your published version, to improve the pack.
 - **setup:** build or update your voice pack.
 
-Formats: post, article, email, message, comment, slides, script, page, bio (LinkedIn headline and About, directory profile, speaker bio). Platforms: LinkedIn, Reddit, Slack, Teams, WhatsApp, blog, email.
+Formats: post, article, email, message, comment, slides, thread, script, page, bio (LinkedIn headline and About, directory profile, speaker bio). Platforms: LinkedIn, Instagram, X, Threads, Reddit, Slack, Teams, WhatsApp, blog, email.
 
 ## 6. Your voice pack
 

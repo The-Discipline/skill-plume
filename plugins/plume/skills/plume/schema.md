@@ -2,7 +2,7 @@
 version: 1
 locked: [name, kind, version]
 forbidden: [tone, voice, style, persona, personality]
-family_fields: [name, kind, version, description, reader_situation, structure, hook_default, hook_rule, cta_by_intent, length, slides, lists, extra_critics, lint]
+family_fields: [name, kind, version, description, reader_situation, structure, hook_default, hook_rule, cta_by_intent, length, slides, parts, lists, extra_critics, lint]
 platform_fields: [name, kind, version, last_checked, families, limits, rendering, conventions, community_rules, register_default, lint, glyphs]
 engine_lint:
   banned_chars: ["U+2014"]
@@ -29,7 +29,7 @@ Machine-readable part above, read by the scripts. Human explanation below.
 
 ## Kinds
 
-- **family** (`families/*.md`): structure, reader situation, hook and CTA defaults, length, lint thresholds. One per kind of piece: post, article, email, message, comment, slides, script, page, bio.
+- **family** (`families/*.md`): structure, reader situation, hook and CTA defaults, length, lint thresholds. One per kind of piece: post, article, email, message, comment, slides, script, page, bio, thread.
 - **platform** (`platforms/*.md`): only constraints. Limits, rendering syntax, conventions, community rules, default register. A platform never sets structure. If two platforms need a different structure, they are different families.
 
 ## Family fields
@@ -43,6 +43,7 @@ Machine-readable part above, read by the scripts. Human explanation below.
 - `cta_by_intent`: map of intent to none, soft or explicit
 - `length`: `min_words`, `max_words` (for slides, see `slides`)
 - `slides`: `min`, `max`, `max_words_per_slide` (slides family only)
+- `parts`: `min`, `max`, `max_words_per_part` (thread family only)
 - `lists`: allowed, limited or avoid
 - `extra_critics`: roles added for this family (seo, slide-alone, read-aloud)
 - `lint`: thresholds: `max_paragraph_words`, `max_sentence_words`, `max_single_line_ratio`, `max_list_items`, `max_links`, `max_hashtags`, `emojis`, plus any engine threshold below

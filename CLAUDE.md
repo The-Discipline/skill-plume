@@ -33,7 +33,7 @@ A writing assistant skill that writes in the user's own voice. It replaces the o
 - **No invented facts.** Placeholders instead. Sources: raw material and `facts.md` only.
 - **Raw material gate.** Write and repurpose need something concrete from the user, or ask up to three questions.
 - **Three layers:** engine (SKILL.md invariants) > user overrides (`formats.md` in the pack) > shipped family and platform defaults. The user pack lives outside the skill so updates never overwrite it.
-- **Family vs platform:** the family sets structure, length, reader situation, hook and CTA defaults. The platform sets only constraints (limits, rendering syntax, conventions, community rules, default register). If structure differs, it's a family (a LinkedIn carousel is `slides`).
+- **Family vs platform:** the family sets structure, length, reader situation, hook and CTA defaults. The platform sets only constraints (limits, rendering syntax, conventions, community rules, default register). If structure differs, it's a family (a LinkedIn carousel is `slides`, a chain of posts on X or Threads is `thread`). Platform limits stay `null` with `last_checked: never` until verified against the platform's help pages. Plume writes text only: no images, only an optional alt text.
 - **Intent is a brief field, never a format:** inform, convince, ask, announce, reply, relationship. It sets the CTA default, whether angles run, and the Reader's question.
 - **Hook and CTA** are inferred from family and intent, stated in one line, overridable. One CTA max. CTA destinations only from `facts.md`.
 - **Forbidden fields in any profile:** tone, voice, style, persona, personality. Voice lives in `voice.md`.

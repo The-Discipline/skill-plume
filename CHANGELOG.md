@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0 (2026-11-17)
+- New family `thread`: a chain of linked posts. The first post works alone, each part stands alone, parts are separated by `---`. The lint checks the number of parts and the words per part.
+- New platforms: Instagram (captions, carousels via `slides`), X and Threads (posts, threads, comments). Limits are left unverified (`last_checked: never`), as for the other platforms.
+- The slide-alone critic also reads thread parts.
+- Plume writes text only. Instagram notes say so: no images, alt text only on request.
+
 ## 0.4.5 (2026-11-15)
 - Docs: `docs/getting-started.md`, the user guide: first run, raw material, reading the output and show the work, learn mode and edit distance, modes, the voice pack, troubleshooting. Linked from the README.
 - README: install commands point to The-Discipline/skill-plume.
