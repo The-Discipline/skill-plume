@@ -28,6 +28,9 @@ A writing assistant skill that writes in the user's own voice. It replaces the o
 - **Examples over rules.** The writer drafts from 3 to 5 published pieces of the same family and language first. Rules produce compliant, generic text.
 - **Mechanical checks are code** (`lint.py`), not LLM judgement. Its result wins on mechanical points.
 - **One revision round, then a blind pairwise judge.** The owner's own experience: three critique passes showed diminishing returns. Pairwise comparison is more reliable than scoring and guards against over-polishing.
+- **Proofreader (v0.6): errors only, last, once.** It sees the final text, the language and variety, the typography rule, and the pack's keep list (what looks wrong on purpose, lexicon and brand names). Nothing else. Certain findings are applied and tagged "proofread"; doubtful ones are suggestions; if the judge kept the author's original in edit mode nothing is applied. It is a correction pass, not a second revision round, so the "never loop the editor" rule holds. It is not a critic with a blind spot, and it does not replace a dedicated grammar tool: a language-model pass has no guarantee of catching everything.
+- **French typography is opt-in.** Many platforms strip non-breaking spaces, and plenty of French writers use plain spaces. The pack's `Typography` line decides; not stated means spacing is never flagged. Lint still leaves non-breaking spaces alone.
+- **Changing language is writing, not translation.** The writer drafts from published pieces in the target language. This fits "language belongs to the voice pack": the optional "In another language" section holds the differences, not a second profile.
 - **Edit mode preserves the user's voice.** Only flagged changes plus typos. If the judge prefers the original, return it with suggestions.
 - **Learn mode is the only way the pack changes from evidence.** It diffs the AI draft with the published version, proposes changes with evidence, and writes only what the user accepts. It never touches shipped files.
 - **No invented facts.** Placeholders instead. Sources: raw material and `facts.md` only.
@@ -110,8 +113,10 @@ From the review of linkedin-agent-skill (Nov 2026, ideas kept are credited in th
 - Per-language profiles: language belongs to the voice pack.
 - Tone in format profiles: would split the voice per platform.
 - A full multi-critic council with several rounds for every post.
-- A critic that rewrites.
-- Shipping formats nobody uses: Instagram was dropped.
+- A critic that rewrites. (The proofreader reports, the caller applies only certain fixes.)
+- A grammar score or readability grade: false precision, and it pushes every text toward the average.
+- An editorial calendar or series planner, and a sitemap audit inside Plume: a different job and reader (Nov 2026). A site audit, if wanted, is a separate skill that reuses the page family.
+- Shipping formats nobody uses: Instagram was dropped at first, then added back in 0.5.0 at the owner's request.
 - Names: Timbre (existing skill, and "timbré" means crazy), Cadence (existing skill), Encre (unpronounceable in English), Signet and Grain (owner chose Plume).
 
 ## Open questions
@@ -122,7 +127,7 @@ From the review of linkedin-agent-skill (Nov 2026, ideas kept are credited in th
   - proposed: a Claude artifact builder. A form collects pieces and answers; with the viewer's Claude account it can draft the pack (`sample` capability, viewer pays, consent on first use) and hand it over as files (`downloads`). Without AI access it still exports the material for `setup`. Risk: its extraction prompt must come from `modes/setup.md`, not a second copy.
 - Grey matter as the shared business source for Plume and Prism: its format, where it lives (Notion, Markdown), and how each skill reads it.
 
-- License (Prism is MIT).
+- License: MIT since v0.6.0 (same as Prism).
 - Verify platform limits (LinkedIn truncation and character limit, others) and set `last_checked`.
 - Build the owner's pack from the Writer and Critic projects (pack #1) with `setup` mode.
 - Migrate the Noctursus voice skill into a Plume pack.

@@ -38,8 +38,11 @@ Ask "show the work" to see what happened before you got the text:
 - the lint report: AI tells, stock words, invisible characters, rhythm, formatting
 - each critic's findings: the Reader (one of your readers, who knows nothing about your rules), the Voice matcher (who only knows your published work), the Fact checker (who only knows your facts)
 - the editor's changes, and which version the judge kept
+- the proofreader's corrections (tagged "proofread") and its doubtful points, which are only suggestions
 
 When a draft feels off, the critics' notes usually say why.
+
+To only fix errors in a text, say "proofread this". Plume runs the proofreader alone and gives you the corrected text with each change listed. Tell it how you want French typography in your voice pack (full rules with non-breaking spaces, or plain spaces); if you don't, spacing is never flagged.
 
 ## 4. The habit that makes it work
 

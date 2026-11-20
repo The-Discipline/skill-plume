@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.0 (2026-11-20)
+- New role: the proofreader. It runs last, on the final text, and finds objective errors only: spelling, agreement, conjugation, doubled or missing words, punctuation, consistency of variety and numbers, and French typography when the pack asks for it. Sure fixes are applied and tagged "proofread" in the change list; doubtful ones stay suggestions. It never touches style or what the pack says to keep. Plugin agent `plume:proofreader`.
+- "Proofread this" runs the proofreader alone, with no critics, editor or judge.
+- The language of a piece now carries its variety, typography and other-language notes from the pack. New Conventions line `Typography` and an optional "In another language" section in `voice.md`.
+- Repurpose: changing language is a rewrite from the user's examples in the target language, not a translation.
+- MIT license added.
+
 ## 0.5.0 (2026-11-17)
 - New family `thread`: a chain of linked posts. The first post works alone, each part stands alone, parts are separated by `---`. The lint checks the number of parts and the words per part.
 - New platforms: Instagram (captions, carousels via `slides`), X and Threads (posts, threads, comments). Limits are left unverified (`last_checked: never`), as for the other platforms.

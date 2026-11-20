@@ -13,4 +13,5 @@ From raw material to a finished piece.
 9. **Editor.** `roles/editor.md`, mode `write`, with the lint report and all findings. One round.
 10. **Re-lint** the revised version. If a high lint finding remains, fix that line only.
 11. **Judge.** `roles/judge.md` on the draft and the revised version, in random order. Keep the winner.
-12. **Deliver** (SKILL.md section 6). Add the signature block for this platform and language from `formats.md` if the family uses one.
+12. **Proofread.** `roles/proofreader.md` on the winner. Apply the certain findings, list the doubtful ones as suggestions, tag each applied fix "proofread" in the change list. No second editor round.
+13. **Deliver** (SKILL.md section 6). Add the signature block for this platform and language from `formats.md` if the family uses one.

@@ -90,6 +90,7 @@ Not an agent: a script. Banned characters and phrases, AI tells ("not X, it's Y"
 ### The editor and the judge
 
 - **The Editor:** one round of minimal fixes from the critics' findings. In edit mode, the text is yours: only flagged changes plus typos.
+- **The Proofreader:** runs once on the final text, after the judge. Errors only: spelling, agreement, punctuation, French typography when the pack asks for it. Sure fixes are applied and tagged "proofread", doubtful ones are suggestions. It is not a critic with a blind spot and not a second revision round.
 - **The Judge:** compares two versions without knowing which one is the revision, and keeps the better one. If it prefers your original in edit mode, Plume returns it with suggestions.
 
 ### Key numbers
@@ -98,7 +99,7 @@ Not an agent: a script. Banned characters and phrases, AI tells ("not X, it's Y"
 - 10 families: post, article, email, message, comment, slides, thread, script, page, bio
 - 10 platforms: LinkedIn, Instagram, X, Threads, Reddit, Slack, Teams, WhatsApp, blog, email
 - 6 intents: inform, convince, ask, announce, reply, relationship
-- 3 angles, 3 critics, 1 revision round, 1 blind pick
+- 3 angles, 3 critics, 1 revision round, 1 blind pick, 1 errors-only proofread
 - 1 call to action at most
 - Up to 3 questions when the raw material is missing
 

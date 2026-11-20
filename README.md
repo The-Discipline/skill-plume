@@ -45,7 +45,8 @@ flowchart LR
     L --> F["Fact checker"]
     R & V & F --> E["Editor<br/>one round, minimal changes"]
     E --> J{"Judge<br/>blind A/B"}
-    J --> O["Your piece"]
+    J --> PR["Proofreader<br/>errors only"]
+    PR --> O["Your piece"]
     O -. "what you published" .-> LN["Learn<br/>pack updates you approve"]
 ```
 
@@ -57,10 +58,11 @@ flowchart LR
 - **Fact checker:** sees only your sources of truth. Flags anything it can't trace.
 - **Editor:** one round of minimal fixes
 - **Judge:** picks between two versions without knowing which one is the revision
+- **Proofreader:** runs last, on the final text. Spelling, agreement, punctuation and French typography only, never style. Sure fixes are applied and listed as "proofread" in the change list; doubtful ones stay suggestions. It never touches what your voice pack says to keep.
 
 The **lint** is a script, not an agent: banned characters and phrases, invisible characters, AI tells ("not X, it's Y", generic openers, reflex questions), stock words in English and French (flagged, never replaced), too few concrete details (names, numbers, quotes), rhythm uniformity, lists of three, paragraph length, Markdown where the platform doesn't render it, hashtag and link counts. It also checks list markers and symbols against your choice for plain-text platforms (`glyphs.md`: one marker style per piece, real lists where the platform renders them), and flags fake bold or italic made of Unicode letters unless your pack opts in. It lists findings; it doesn't give a score.
 
-Every output ends with "show the work": the lint report, each critique, the editor's changes and the judge's choice.
+Every output ends with "show the work": the lint report, each critique, the editor's changes, the judge's choice and the proofreader's corrections.
 
 ## Formats
 
@@ -136,10 +138,11 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.5.0, untested on real briefs.**
+**v0.6.0, untested on real briefs.**
 - Built: skill and modes, 10 families, 10 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet
+- Proofreader added in 0.6.0: judged by reading, not yet on real texts. It is a language-model pass, not a replacement for a dedicated grammar checker.
 - Not yet done: a real voice pack, a real run, the eval set, verified platform limits, an OpenAI plugin for ChatGPT web and mobile
 
 ## Credits
@@ -148,4 +151,4 @@ Built by [Virgile Gouala](https://goua.la). Sister skill: [Prism](https://github
 
 Ideas, not code, from Jake Schincariol's [linkedin-agent-skill](https://github.com/Jakeschincariol/linkedin-agent-skill): a stock-word list, a specificity check and invisible-character cleanup in the lint, starting a voice from three posts, and a bio format.
 
-License: to be decided.
+License: [MIT](LICENSE).

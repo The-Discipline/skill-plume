@@ -1,8 +1,9 @@
 {
   "name": "plume",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Plume: writes like you, reads like your audience. Drafts, edits, repurposes and reviews text in your own voice.",
   "author": {
     "name": "Virgile Gouala"
-  }
+  },
+  "license": "MIT"
 }

@@ -29,4 +29,9 @@ What you argue from. Without this, the writer has nothing to defend.
 - Capitals: {sentence case or title case in titles}
 - Emojis: {never, in comments only, as list markers...}
 - Numbers: {digits always, or words below ten}
+- Typography: {French rules (non-breaking spaces before : ; ! ? and guillemets), or plain spaces. Not stated means spacing is never flagged}
 - Other: {inclusive writing, spelling choices, brand names written a certain way}
+
+## In another language (optional)
+Only if you write in more than one language and you sound different in each.
+- {how your register, humour or formality change in the other language, and what you never say there}

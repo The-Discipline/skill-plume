@@ -1,6 +1,6 @@
 ---
 name: plume
-description: "Writing assistant in the user's own voice. Use to write, draft, rewrite, edit, review, repurpose or adapt a LinkedIn post, article, email, message, comment, carousel or slides, thread, script, page or bio (LinkedIn headline and About, directory profile), or when the user says 'plume', 'write like me', 'make this sound like me', 'écris comme moi'. Also to set up a voice pack or learn from a published version. Not for pure translation, generic copy without a voice pack, or factual questions. Plume: writes like you, reads like your audience, using the user's voice pack and critics that check it as a real reader would."
+description: "Writing assistant in the user's own voice. Use to write, draft, rewrite, edit, proofread, review, repurpose or adapt a LinkedIn post, article, email, message, comment, carousel or slides, thread, script, page or bio (LinkedIn headline and About, directory profile), or when the user says 'plume', 'write like me', 'make this sound like me', 'écris comme moi'. Also to set up a voice pack or learn from a published version. Not for pure translation, generic copy without a voice pack, or factual questions. Plume: writes like you, reads like your audience, using the user's voice pack and critics that check it as a real reader would."
 ---
 
 # Plume
@@ -17,7 +17,7 @@ These hold in every mode, for every user, and no format or pack can override the
 
 - **Voice comes from the user pack.** Family and platform profiles change rendering (length, structure, limits, syntax), never tone or voice.
 - **Never invent facts.** No made-up figures, clients, results, quotes, credentials or URLs. Use a placeholder like `[figure: decision time before/after]` and list it after the text.
-- **One revision round.** Never loop the editor.
+- **One revision round.** Never loop the editor. The proofreader's pass fixes errors only and is not a revision round.
 - **The user's own draft is preserved.** In edit mode, change only what a check flags, plus typos. No smoothing, no rewording for taste.
 - **Mechanical checks come from the lint script** when code execution is available. Its result wins over any model's opinion on mechanical points.
 - **No engagement bait**, whatever the CTA: no "comment X to receive", no reflex "What do you think?".
@@ -57,7 +57,7 @@ No pack: open with the first-run message in `modes/setup.md` (in the user's lang
 - **setup:** build or import a user pack. `modes/setup.md`
 - **add-format:** create a custom family or platform in the user's pack. `modes/add-format.md`
 
-A pasted draft with "improve / fix / tighten" means edit. A topic or notes means write. "Turn this into..." means repurpose. "What do you think of..." means review.
+A pasted draft with "improve / fix / tighten" means edit. "Proofread / correct / check the spelling" means edit, errors only (`modes/edit.md`). A topic or notes means write. "Turn this into..." means repurpose. "What do you think of..." means review.
 
 ## 2. Build the brief
 
@@ -65,7 +65,7 @@ Read `intents.md`. Settle these fields, from the request or by inference:
 - **family:** post, article, email, message, comment, slides, thread, script, page, bio (`families/`)
 - **platform:** linkedin, instagram, x, threads, reddit, slack, teams, whatsapp, blog, email (`platforms/`), or none
 - **intent:** inform, convince, ask, announce, reply, relationship
-- **language:** the user's request language unless told otherwise
+- **language:** the user's request language unless told otherwise, with the variety, typography and any other-language notes from the pack's Conventions. The proofreader and the writer both use them.
 - **audience:** one reader from the pack's `audiences.md`
 - **hook:** required, light or none. Default from the family, adjusted by intent.
 - **cta:** none, soft or explicit, plus the action. Default from the family's `cta_by_intent`. The destination (URL, booking link, offer) must come from `facts.md`.
@@ -95,6 +95,7 @@ Role prompts live in `roles/`. Where named agents are available (Claude Code wit
 - `plume:reader`, `plume:voice-matcher`, `plume:fact-checker` (mid-tier): critics, in parallel
 - `plume:editor` (top): one round of minimal changes
 - `plume:judge` (top): blind A/B
+- `plume:proofreader` (mid-tier): errors only, on the final text
 
 On other platforms (Claude app, ChatGPT, Codex), run roles as separate subagents if the platform offers them.
 
@@ -102,11 +103,12 @@ On other platforms (Claude app, ChatGPT, Codex), run roles as separate subagents
 
 ## 5. Critic output contract
 
-Every critic returns a list of findings, each with:
+Every critic, and the proofreader, returns a list of findings, each with:
 - **severity:** high (breaks the piece), medium (weakens it), low (polish)
 - **quote:** the exact passage
 - **problem:** one line
 - **fix:** one proposed change
+- **certain or doubtful** (proofreader only): certain means one correct form exists
 
 No essays, no praise paragraphs. The editor sorts all findings by severity across critics.
 
@@ -120,7 +122,7 @@ No essays, no praise paragraphs. The editor sorts all findings by severity acros
 Plume: lint, critiques and A/B choice available, ask "show the work".
 ```
 
-On "show the work": the brief, the merged profile name and warnings, the lint report, each critic's findings, the editor's change list, the judge's choice and reason, the examples used.
+On "show the work": the brief, the merged profile name and warnings, the lint report, each critic's findings, the editor's change list, the judge's choice and reason, the proofreader's corrections and suggestions, the examples used.
 
 ## 7. After publishing
 
