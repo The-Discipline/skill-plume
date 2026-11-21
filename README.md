@@ -78,18 +78,20 @@ Platform limits (character counts, "see more" cut-offs) are left empty until ver
 
 ## Your voice pack
 
-Your pack lives outside the skill, so updates never overwrite it:
+Your pack is what Plume knows about your writing. You don't write it yourself: setup builds it from what you give (posts you published, a voice guide, a brand book, your offers page), in whatever format you have. It lives outside the skill, so updates never overwrite it. It has these sections:
 
-- `voice.md`: who you are, your convictions (what you believe, what you push back on, what you want to own), how you sound, your conventions (language variety, contractions, capitals, emojis, numbers)
-- `anti-patterns.md`: what is forbidden (blocked) and what to avoid (flagged), with weak and strong examples
-- `lexicon.md`: your expressions and signature lines
-- `audiences.md`: the specific readers the Reader critic plays
-- `facts.md`: offers, prices, links, proof. The only source for claims.
-- `formats.md`: your overrides (shorter posts, extra bans, signatures per platform, your list marker and symbols)
-- `examples/`: pieces you published, indexed by format and language. Three are enough to start (a "thin pack", and outputs say so); 10 to 15 is where it gets close.
-- `learn-log.md`: the updates you accepted, with their evidence
+- **Voice:** who you are, your convictions (what you believe, what you push back on, what you want to own), how you sound, your conventions (language variety, contractions, capitals, emojis, numbers)
+- **Anti-patterns:** what is forbidden (blocked) and what to avoid (flagged), with weak and strong examples
+- **Lexicon:** your expressions and signature lines
+- **Readers:** the specific people the Reader critic plays
+- **Facts:** offers, prices, links, proof. The only source for claims.
+- **Formats:** your preferences (shorter posts, extra bans, signatures per platform, your list marker and symbols). Say them in plain words ("allow the word X", "use ▸ for lists") and Plume writes them in.
+- **Examples:** pieces you published, by format and language. Three are enough to start (a "thin pack", and outputs say so); 10 to 15 is where it gets close.
+- **Learn log:** the updates you accepted or rejected, with their evidence
 
-Keep it wherever your assistant can read: attached files, a `plume-pack/` folder, your project files, or any connected app (Notion, Google Drive...) under the name "Plume pack" or one you give. Any readable format works (Markdown, Google Doc, Word, PDF). Markdown is the easiest to keep up to date: a PDF can be read, not edited, so Plume offers to convert it the first time it has changes to write. It updates the pack through the same connector when it can, otherwise it gives you the text to paste. Keep it private: it holds your positioning and facts. Templates are in `plugins/plume/skills/plume/templates/`, and a complete fictional pack is in `examples/pack-example/`.
+Keep it wherever your assistant can read: one Notion page with these sections, a Google Doc, attached files, a project, or a folder of files. Plume looks for "Plume pack" or the name you give. A PDF can be read but not edited, so the first time Plume has changes to write, it offers to move the pack to an editable format of your choice. It updates the pack through the same connector when it can, otherwise it gives you the text to paste. Keep it private: it holds your positioning and facts.
+
+For people who prefer files: the templates are in `plugins/plume/skills/plume/templates/` (one Markdown file per section), and a complete fictional pack is in `examples/pack-example/`.
 
 ## Install
 
@@ -119,7 +121,7 @@ In Claude Code, each role runs as its own agent with a model chosen for the job:
 - Claude app: supported
 - ChatGPT desktop and Codex: expected to work, reduced mode, scripts to be tested
 - ChatGPT web and mobile: needs an OpenAI plugin, not available yet
-- Your voice pack is plain Markdown and works with any assistant
+- Your voice pack can be in any format and works with any assistant that can read it
 
 Status changes only after a real test on that platform. Each release is checked against the list in `CLAUDE.md`.
 
@@ -138,7 +140,7 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.7.0, untested on real briefs.**
+**v0.7.1, untested on real briefs.**
 - Built: skill and modes, 10 families, 10 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet

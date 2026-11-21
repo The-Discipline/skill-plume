@@ -68,16 +68,16 @@ Formats: post, article, email, message, comment, slides, thread, script, page, b
 
 ## 6. Your voice pack
 
-- **Where:** anywhere your assistant can read: attached files, a project, a `plume-pack/` folder, Notion, Google Drive. Any readable format works; Markdown is the easiest to keep up to date.
+- **Where and in what format:** anywhere your assistant can read, in the format you already use: one Notion page, a Google Doc, attached files, a project, a folder. You don't need to write files: setup builds the pack from what you give it.
 - **What matters most:** your published pieces. Then your convictions (what you believe, what you push back on) and your bans. The [templates](../plugins/plume/skills/plume/templates/) show every section; the [example pack](../examples/pack-example/) shows a filled one.
-- **Your list markers and symbols** for plain-text platforms like LinkedIn: set them once in `formats.md` (`glyphs`).
+- **Your preferences,** like list markers and symbols for plain-text platforms such as LinkedIn: say them once in plain words ("use ▸ for lists") and Plume adds them to your pack.
 - **Keep it private:** it holds your positioning and your numbers.
 
 ## 7. When it goes wrong
 
 - **It asks questions instead of writing:** your request had no raw material. Add one concrete thing.
 - **It doesn't sound like you:** check the "Thin pack" line and add published pieces, then use learn mode after each post.
-- **The lint flags a word you really use:** add it to `stock_words_allow` in your pack's `formats.md`.
+- **The lint flags a word you really use:** tell Plume "allow the word X" and it adds it to your pack.
 - **"Reduced Plume" in the result:** your platform can't run independent critics, so they ran one after another. Use Claude Code for the full pipeline.
 - **"Lint done by the model":** code execution is off, so the checks were done by reading. In the Claude app, turn code execution on.
 

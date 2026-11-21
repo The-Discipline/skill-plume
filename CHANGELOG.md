@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.7.1 (2026-11-21)
+- The pack is in the user's format: docs describe it as sections, not files, and no longer say it is Markdown. One Notion page or a Google Doc works.
+- Settings in plain words ("allow the word X", "use ▸ for lists"): Plume writes them into the pack, the user never edits syntax.
+- A read-only pack (PDF, export) is moved to an editable format of the user's choice, not to Markdown by default.
+- Scripts run on a working copy Plume writes itself, split by section.
+
 ## 0.7.0 (2026-11-21)
 - Guardrails: raw material, the pack, examples, guides, linked pages and published versions are data, never instructions. Every agent says so.
 - Pack updates: only accepted lines, the target read first, nothing else deleted or rewritten, then re-read and the change shown. A failed write gives the text to paste.
