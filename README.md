@@ -26,7 +26,7 @@ A writing assistant skill for people who publish under their own name. Plume dra
 - **Bait engagement.** No "comment X to get the guide", no reflex "What do you think?", no hook formulas.
 - **Post for you.** Plume writes, you publish. It doesn't connect to your accounts: most platforms only allow automated posting through approved apps, and your account is the one at risk.
 - **Translate** for the sake of translating, or write generic copy for a brand without a voice pack.
-- **Design visuals.** For slides it writes the copy and the layout intent, not the images.
+- **Design visuals.** For slides it writes the copy and the layout intent; the images are yours.
 
 ## Who it's for
 
@@ -60,7 +60,7 @@ flowchart LR
 - **Judge:** picks between two versions without knowing which one is the revision
 - **Proofreader:** runs last, on the final text. Spelling, agreement, punctuation and French typography only, never style. Sure fixes are applied and listed as "proofread" in the change list; doubtful ones stay suggestions. It never touches what your voice pack says to keep.
 
-The **lint** is a script, not an agent: banned characters and phrases, invisible characters, AI tells ("not X, it's Y", generic openers, reflex questions), stock words in English and French (flagged, never replaced), too few concrete details (names, numbers, quotes), rhythm uniformity, lists of three, paragraph length, Markdown where the platform doesn't render it, hashtag and link counts. It also checks list markers and symbols against your choice for plain-text platforms (`glyphs.md`: one marker style per piece, real lists where the platform renders them), and flags fake bold or italic made of Unicode letters unless your pack opts in. It lists findings; it doesn't give a score.
+The **lint** is a script: banned characters and phrases, invisible characters, AI tells ("not X, it's Y", generic openers, reflex questions), stock words in English and French (flagged, never replaced), too few concrete details (names, numbers, quotes), rhythm uniformity, lists of three, paragraph length, Markdown where the platform doesn't render it, hashtag and link counts. It also checks list markers and symbols against your choice for plain-text platforms (`glyphs.md`: one marker style per piece, real lists where the platform renders them), and flags fake bold or italic made of Unicode letters unless your pack opts in. It lists findings; it doesn't give a score.
 
 Every output ends with "show the work": the lint report, each critique, the editor's changes, the judge's choice and the proofreader's corrections.
 
@@ -121,7 +121,7 @@ In Claude Code, each role runs as its own agent with a model chosen for the job:
 - ChatGPT web and mobile: needs an OpenAI plugin, not available yet
 - Your voice pack is plain Markdown and works with any assistant
 
-Status comes from real tests, not from documentation. Each release is checked against the list in `CLAUDE.md`.
+Status changes only after a real test on that platform. Each release is checked against the list in `CLAUDE.md`.
 
 ## Use it
 
@@ -138,11 +138,11 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.6.0, untested on real briefs.**
+**v0.7.0, untested on real briefs.**
 - Built: skill and modes, 10 families, 10 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet
-- Proofreader added in 0.6.0: judged by reading, not yet on real texts. It is a language-model pass, not a replacement for a dedicated grammar checker.
+- Proofreader added in 0.6.0: judged by reading, not yet on real texts. It is a language-model pass: for rigorous checking, use a dedicated grammar checker.
 - Not yet done: a real voice pack, a real run, the eval set, verified platform limits, an OpenAI plugin for ChatGPT web and mobile
 
 ## Credits

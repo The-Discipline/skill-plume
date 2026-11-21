@@ -9,8 +9,8 @@ The only way the pack improves from evidence. Input: the AI draft (from this con
    - **exact change:** the line to add or modify
    - **evidence:** the edits that justify it
    Prefer a lint rule (`formats.md` under `lint`) when the pattern is mechanical: a character, a phrase, a construction.
-4. The user accepts or rejects each proposal. Write only the accepted ones, and append each to `learn-log.md` with the date and evidence.
+4. The user accepts or rejects each proposal. Write only the accepted ones (SKILL.md, "Updates"). Append every proposal to `learn-log.md` with the date, the evidence and the decision, rejected ones included. Before proposing, check the log: never propose again a change already accepted or rejected, unless new evidence contradicts the earlier decision, and then say so.
 5. Offer to add the published piece to `examples/` and to `examples/index.md` (family, platform, language, date, topic). In a thin pack, this is the first offer, before the pack updates: each piece added makes the next draft closer.
-6. Report the edit distance. Over time, it is the metric that shows whether Plume improves.
+6. Report the edit distance from the script. Over time, it is the metric that shows whether Plume improves. Without code execution, give a rough estimate and label it as one; never present it as measured.
 
 Never write to the shipped skill files from this mode. Learn only changes the user's pack.

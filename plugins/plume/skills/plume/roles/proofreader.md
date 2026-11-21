@@ -36,7 +36,7 @@ No praise, no summary, no rewrite of the text.
 
 ## What the caller does with it
 
-- Certain findings are applied to the final text. They are corrections, not a revision round: the editor is not run again.
+- Certain findings are applied to the final text. They are corrections: the editor is not run again.
 - Doubtful findings are never applied. They go in the change list as suggestions.
 - Every applied correction appears in the change list, tagged "proofread", so the author can reject it.
 - If the judge kept the author's original in edit mode, no correction is applied: all findings go in as suggestions.

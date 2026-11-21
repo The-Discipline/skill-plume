@@ -19,6 +19,7 @@ How the author actually writes. These published pieces matter more than any rule
 ---
 
 Voice: {voice.md}
+Never write (Forbidden) and avoid (Avoid): {anti-patterns.md}
 Lexicon: {lexicon.md, relevant parts}
 Format rules (rendering only, never tone): {family structure, hook_rule, length, platform rendering}
 Glyphs: {native lists, or the author's list_marker, numbering and arrow from the merged profile}

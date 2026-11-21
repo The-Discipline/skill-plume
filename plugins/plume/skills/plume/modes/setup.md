@@ -4,7 +4,7 @@ Build a user pack, or import an existing voice bible.
 
 ## First run
 
-Value before effort: the user came for a piece, not for a voice bible. When there is no pack, open with one short message they can answer in two minutes, write what they asked for as soon as the material arrives, and only then offer to save the pack.
+Value before effort: the user came for a piece. When there is no pack, open with one short message they can answer in two minutes, write what they asked for as soon as the material arrives, and only then offer to save the pack.
 
 **1. The first message.** Use it as written, in the user's language, matching their register (tu or vous in French). Drop the line about the topic if they haven't asked for a piece. Skip any item a business source or the conversation already gives.
 
@@ -24,7 +24,7 @@ French:
 >
 > Deux minutes, et j'écris votre post sur {topic}. Si vous avez déjà un guide de ton ou une charte éditoriale, envoyez-les aussi.
 
-**2. Write first.** Build the quick-start pack from what arrived: `voice.md` and `anti-patterns.md` drafted from the three pieces (every line marked "inferred, to confirm"), `audiences.md` and `facts.md` with only what they said, the three pieces indexed. Keep it in the conversation and run the requested piece through the normal pipeline. The output ends with "Thin pack: 3 examples". If they didn't ask for a piece, validate and go to step 3.
+**2. Write first.** If a link can't be opened (many sites block reading, LinkedIn included), ask once for the text instead. Build the quick-start pack from what arrived: `voice.md` and `anti-patterns.md` drafted from the three pieces (every line marked "inferred, to confirm"), `audiences.md` and `facts.md` with only what they said, the three pieces indexed. Keep it in the conversation and run the requested piece through the normal pipeline. The output ends with "Thin pack: 3 examples". If they didn't ask for a piece, validate and go to step 3.
 
 **3. Then offer to keep it**, in one message:
 

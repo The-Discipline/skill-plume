@@ -34,7 +34,7 @@ lint:
 ## Structure
 - **Hook:** one or two lines that make the reader stop. A tension, a cost, a contradiction, a moment.
 - **Development:** the story or the reasoning, in short paragraphs. Prefer narration over lists.
-- **Takeaway:** what the reader keeps. Not a moral, not a slogan.
+- **Takeaway:** what the reader keeps. No moral and no slogan.
 - **CTA:** only if the intent calls for it, one at most.
 - **Signature:** the user's signature block for this platform and language, from the pack.
 

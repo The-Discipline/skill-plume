@@ -19,7 +19,7 @@ For a complete pack, ask for setup (`/plume:setup`). Bring 10 to 15 published pi
 
 ## 2. Give it something real
 
-Plume won't invent your experience. A topic alone gets you up to three questions, not a draft.
+Plume won't invent your experience. Give it only a topic and it asks up to three questions before drafting.
 
 - Weak: "A post about Notion for freelancers."
 - Better: "A post about the client who asked me to rebuild their CRM three times. The first two worked; nobody used them. This time we built one view, what the sales lead checks on Monday morning."
@@ -38,6 +38,7 @@ Ask "show the work" to see what happened before you got the text:
 - the lint report: AI tells, stock words, invisible characters, rhythm, formatting
 - each critic's findings: the Reader (one of your readers, who knows nothing about your rules), the Voice matcher (who only knows your published work), the Fact checker (who only knows your facts)
 - the editor's changes, and which version the judge kept
+- available until the end of the conversation
 - the proofreader's corrections (tagged "proofread") and its doubtful points, which are only suggestions
 
 When a draft feels off, the critics' notes usually say why.

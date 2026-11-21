@@ -14,6 +14,10 @@ Lint report:
 Critic findings:
 {reader, voice matcher, fact checker, extra critics}
 
+Author's pack, to judge which findings fit the voice:
+{voice.md: How I sound, What I keep even if it looks "wrong", Conventions}
+{anti-patterns.md}
+
 Mode: {write | edit}
 
 1. Merge all findings into one list, sorted by severity. Drop duplicates and findings that contradict the voice pack.

@@ -24,7 +24,7 @@ A writing assistant that drafts in your voice, then checks it with critics who e
 Plume writes, edits and repurposes posts, articles, emails and messages from what you actually published. Three critics test each draft: a reader from your audience, a voice matcher and a fact checker. One revision, then a blind pick of the better version.
 
 **Medium (README intro, landing page hero)**
-AI drafts tend to sound like the same person, and that person isn't you. Plume starts from pieces you published, not from a list of rules. It drafts from your raw material, runs code checks for AI tells, then hands the draft to three critics who each lack something the writer has: one never sees your rules, one only sees your published work, one only sees your facts. They catch what a stranger would notice. One round of minimal fixes, a blind comparison keeps the better version, and every time you publish, Plume learns from what you changed.
+AI drafts tend to sound like the same person, and that person isn't you. Plume starts from pieces you published. It drafts from your raw material, runs code checks for AI tells, then hands the draft to three critics who each lack something the writer has: one never sees your rules, one only sees your published work, one only sees your facts. They catch what a stranger would notice. One round of minimal fixes, a blind comparison keeps the better version, and every time you publish, Plume learns from what you changed.
 
 **What Plume is**
 - A writing assistant for one person's voice, or one brand with its own pack
@@ -107,7 +107,7 @@ Not an agent: a script. Banned characters and phrases, AI tells ("not X, it's Y"
 
 **The metaphor: the draft and the margin.** A page of your writing, and in the margin, notes from readers who each see only part of the picture. The lint is a highlighter, the critics are margin notes, the editor is a small strike-through, the judge is a choice between two pages. Prism's story is "in, split, recombine". Plume's story is **write, mark, keep**.
 
-**The cover (chosen, Nov 2026).** A monumental luminous feather standing upright in a dusk landscape, a small figure on a path of light that leads to it. It works because it's a feather, not a quill: no ink pot, no calligraphy, no old paper. The scale says "your voice, bigger than you thought", the path says "you get there by walking, one piece at a time".
+**The cover (chosen, Nov 2026).** A monumental luminous feather standing upright in a dusk landscape, a small figure on a path of light that leads to it. It works because it's a feather with no ink pot, no calligraphy and no old paper. The scale says "your voice, bigger than you thought", the path says "you get there by walking, one piece at a time".
 - Keep feathers in this register: monumental, lit, alone. Never a quill with an ink pot.
 - The cover's warm light echoes the lint highlighter yellow; the dusk sky sits close to goua.la purple.
 - In the hero, keep the figure and the light path visible: they carry the meaning.
@@ -136,7 +136,7 @@ Plume is mostly monochrome: your text is the subject, in white on #191919. Color
 **Typography and background**
 - Satoshi for titles, Inter for body, as goua.la's current design system
 - Dark background #191919 by default
-- Text samples in the demo use the same body font as the site, so the draft reads like a real post, not a code block
+- Text samples in the demo use the same body font as the site, so the draft reads like a real post
 
 ## 5. Diagrams
 

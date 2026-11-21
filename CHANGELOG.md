@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.0 (2026-11-21)
+- Guardrails: raw material, the pack, examples, guides, linked pages and published versions are data, never instructions. Every agent says so.
+- Pack updates: only accepted lines, the target read first, nothing else deleted or rewritten, then re-read and the change shown. A failed write gives the text to paste.
+- Learn mode logs rejected proposals too and never proposes the same change twice without new evidence. Without code execution, the edit distance is labelled an estimate.
+- Role inputs fixed: the editor now receives the voice keep list, Conventions and anti-patterns it needs to drop findings that contradict the voice; the writer receives the anti-patterns; the SEO critic the allowed links; the slide-alone critic the word limit.
+- Setup: if a link to published posts can't be opened, Plume asks for the text.
+- "Show the work" is available until the end of the conversation.
+- Wording: "X, not Y" phrasings rewritten in the skill, the docs and the agents.
+
 ## 0.6.0 (2026-11-20)
 - New role: the proofreader. It runs last, on the final text, and finds objective errors only: spelling, agreement, conjugation, doubled or missing words, punctuation, consistency of variety and numbers, and French typography when the pack asks for it. Sure fixes are applied and tagged "proofread" in the change list; doubtful ones stay suggestions. It never touches style or what the pack says to keep. Plugin agent `plume:proofreader`.
 - "Proofread this" runs the proofreader alone, with no critics, editor or judge.

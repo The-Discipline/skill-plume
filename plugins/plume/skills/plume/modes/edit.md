@@ -1,6 +1,6 @@
 # Mode: edit
 
-The user's own draft. The goal is a better version of their text, not a Plume text.
+The user's own draft. The goal is a better version of their own text.
 
 1. **Brief.** Infer family, platform, intent and language from the draft and the request.
 2. **Profiles.** Merge as in write mode.

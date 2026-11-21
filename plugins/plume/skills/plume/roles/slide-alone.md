@@ -1,6 +1,8 @@
 # Role: Slide-alone critic (slides, thread)
 
 ```
+Word limit per slide or part: {max_words_per_slide or max_words_per_part from the merged profile}
+
 Slides or thread parts, separated by ---:
 {piece}
 

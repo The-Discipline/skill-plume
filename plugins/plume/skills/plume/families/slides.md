@@ -45,4 +45,4 @@ lint:
 Separate slides with a line containing only `---`.
 
 ## Deliverable
-For each slide: title, body (within the word limit), visual note (what to show, hierarchy). Then the caption. Plume writes the copy and the layout intent, not the visuals.
+For each slide: title, body (within the word limit), visual note (what to show, hierarchy). Then the caption. Plume writes the copy and the layout intent; the visuals stay with the author.
