@@ -99,7 +99,7 @@ After installing, read [Getting started](docs/getting-started.md): your first ru
 
 
 **Claude app (web, desktop, mobile)**
-1. Download `plume.zip` from the latest release.
+1. Download `plume-latest.zip` from the latest release.
 2. In Claude: Customize > Skills > "+" > Create skill > Upload a skill.
 3. Make sure code execution is enabled, so the lint and the pack checks can run.
 
