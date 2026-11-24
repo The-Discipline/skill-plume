@@ -123,7 +123,7 @@ In Claude Code, each role runs as its own agent with a model chosen for the job:
 - ChatGPT web and mobile: needs an OpenAI plugin, not available yet
 - Your voice pack can be in any format and works with any assistant that can read it
 
-Status changes only after a real test on that platform. Each release is checked against the list in `CLAUDE.md`.
+Status changes only after a real test on that platform.
 
 ## Use it
 

@@ -226,7 +226,7 @@ flowchart LR
 
 ## 6. Landing page
 
-Decisions are in `CLAUDE.md` under "Landing page". For design, the two moments to show:
+For design, the two moments to show:
 - **The blind-spots grid** (diagram 5.2 as a visual): who sees what
 - **The marked draft:** one real post where the lint highlights appear, then the three critics' margin notes, then the editor's strike-throughs, then the judge's pick between two versions
 
