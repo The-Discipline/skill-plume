@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.4 (2026-11-24)
+- Directory listing: `privacyPolicyUrl` and `keywords` in `plugin.json`.
+
 ## 0.7.3 (2026-11-24)
 - Sister skill renamed to Prismatize: README credit, link and docs updated.
 - Plugin icon: embedded generator metadata removed.
