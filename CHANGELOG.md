@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.2 (2026-11-24)
+- Help: `help` mode, `/plume:help` and "plume help" print a fixed block: how to ask, the voice pack, what "Reduced Plume" means, code execution, and links to the guide and the issue tracker. A bare "help" does not trigger it.
+- Directory submission: `plugins/plume/README.md`, `homepage`, `repository` and a 512x512 `icon` in `plugin.json`.
+- README: listing badge. The Claude Code command list includes `/plume:help`.
+
 ## 0.7.1 (2026-11-21)
 - The pack is in the user's format: docs describe it as sections, not files, and no longer say it is Markdown. One Notion page or a Google Doc works.
 - Settings in plain words ("allow the word X", "use ▸ for lists"): Plume writes them into the pack, the user never edits syntax.

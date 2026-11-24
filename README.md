@@ -2,6 +2,8 @@
 
 **Writes like you. Reads like your audience.**
 
+[![Plume - Listed on Claude AI Directory](https://www.claudeai.directory/badge/plume)](https://www.claudeai.directory/launches/plume)
+
 A writing assistant skill for people who publish under their own name. Plume drafts, edits, repurposes and reviews LinkedIn posts, articles, emails, messages, bios and more, in your voice. Then it checks the result with critics that each lack something the writer has, so the problems a stranger would notice get caught before you publish.
 
 > [!IMPORTANT]
@@ -108,7 +110,7 @@ After installing, read [Getting started](docs/getting-started.md): your first ru
 claude plugin marketplace add The-Discipline/skill-plume
 claude plugin install plume@plume
 ```
-Commands: `/plume` (Plume picks the mode), or a specific mode with `/plume:write`, `/plume:edit`, `/plume:repurpose`, `/plume:review`, `/plume:learn`, `/plume:setup`.
+Commands: `/plume` (Plume picks the mode), or a specific mode with `/plume:write`, `/plume:edit`, `/plume:repurpose`, `/plume:review`, `/plume:learn`, `/plume:setup`, `/plume:help`.
 
 **ChatGPT desktop app:** upload the `plume` skill from Plugins > Skills, then call it with `@plume`.
 
@@ -140,7 +142,7 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.7.1, untested on real briefs.**
+**v0.7.2, untested on real briefs.**
 - Built: skill and modes, 10 families, 10 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet

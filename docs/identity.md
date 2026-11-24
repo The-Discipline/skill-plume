@@ -8,7 +8,7 @@ Everything needed to design Plume's logo, visuals, diagrams and landing page. So
 - **Repo:** `skill-plume`
 - **Tagline (skill, directories, repo):** Writes like you. Reads like your audience.
 - **Tagline (landing page), proposed:** The writing desk for people who publish under their own name.
-- **Claude Code commands:** `/plume` (Plume picks the mode), or `/plume:write`, `/plume:edit`, `/plume:repurpose`, `/plume:review`, `/plume:learn`, `/plume:setup`
+- **Claude Code commands:** `/plume` (Plume picks the mode), or `/plume:write`, `/plume:edit`, `/plume:repurpose`, `/plume:review`, `/plume:learn`, `/plume:setup`, `/plume:help`
 - **Other platforms:** `@plume` in ChatGPT desktop, `$plume` in Codex
 - **French hook, proposed:** "Prendre la plume sans perdre sa voix."
 - **Never in French:** "plumer" as a verb. "Se faire plumer" means getting ripped off.

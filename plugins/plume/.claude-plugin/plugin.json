@@ -1,9 +1,12 @@
 {
   "name": "plume",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Plume: writes like you, reads like your audience. Drafts, edits, repurposes and reviews text in your own voice.",
   "author": {
     "name": "Virgile Gouala"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://goua.la/en/skills/plume",
+  "repository": "https://github.com/The-Discipline/skill-plume",
+  "icon": "./icon.png"
 }

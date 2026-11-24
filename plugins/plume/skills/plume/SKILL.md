@@ -58,6 +58,7 @@ No pack: open with the first-run message in `modes/setup.md` (in the user's lang
 - **learn:** compare an AI draft with what the user actually published, and propose pack updates. `modes/learn.md`
 - **setup:** build or import a user pack. `modes/setup.md`
 - **add-format:** create a custom family or platform in the user's pack. `modes/add-format.md`
+- **help:** the user asks for help with Plume itself ("plume help", `/plume:help`, not a bare "help"). `modes/help.md`
 
 A pasted draft with "improve / fix / tighten" means edit. "Proofread / correct / check the spelling" means edit, errors only (`modes/edit.md`). A topic or notes means write. "Turn this into..." means repurpose. "What do you think of..." means review.
 
