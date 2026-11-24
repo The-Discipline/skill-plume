@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.3 (2026-11-24)
+- Sister skill renamed to Prismatize: README credit, link and docs updated.
+- Plugin icon: embedded generator metadata removed.
+
 ## 0.7.2 (2026-11-24)
 - Help: `help` mode, `/plume:help` and "plume help" print a fixed block: how to ask, the voice pack, what "Reduced Plume" means, code execution, and links to the guide and the issue tracker. A bare "help" does not trigger it.
 - Directory submission: `plugins/plume/README.md`, `homepage`, `repository` and a 512x512 `icon` in `plugin.json`.

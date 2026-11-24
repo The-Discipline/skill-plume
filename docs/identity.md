@@ -1,6 +1,6 @@
 # Plume identity brief
 
-Everything needed to design Plume's logo, visuals, diagrams and landing page. Source of truth: `SKILL.md` v0.4. Sister brief: Prism's `docs/identity.md`.
+Everything needed to design Plume's logo, visuals, diagrams and landing page. Source of truth: `SKILL.md` v0.4. Sister brief: Prismatize's `docs/identity.md`.
 
 ## 1. Name and taglines
 
@@ -105,21 +105,21 @@ Not an agent: a script. Banned characters and phrases, AI tells ("not X, it's Y"
 
 ## 4. Visual concept
 
-**The metaphor: the draft and the margin.** A page of your writing, and in the margin, notes from readers who each see only part of the picture. The lint is a highlighter, the critics are margin notes, the editor is a small strike-through, the judge is a choice between two pages. Prism's story is "in, split, recombine". Plume's story is **write, mark, keep**.
+**The metaphor: the draft and the margin.** A page of your writing, and in the margin, notes from readers who each see only part of the picture. The lint is a highlighter, the critics are margin notes, the editor is a small strike-through, the judge is a choice between two pages. Prismatize's story is "in, split, recombine". Plume's story is **write, mark, keep**.
 
 **The cover (chosen, Nov 2026).** A monumental luminous feather standing upright in a dusk landscape, a small figure on a path of light that leads to it. It works because it's a feather with no ink pot, no calligraphy and no old paper. The scale says "your voice, bigger than you thought", the path says "you get there by walking, one piece at a time".
 - Keep feathers in this register: monumental, lit, alone. Never a quill with an ink pot.
 - The cover's warm light echoes the lint highlighter yellow; the dusk sky sits close to goua.la purple.
 - In the hero, keep the figure and the light path visible: they carry the meaning.
 
-**Link with goua.la.** The goua.la logo uses four shapes: circle, square, triangle, cross. Prism took the triangle. Two candidates for Plume:
+**Link with goua.la.** The goua.la logo uses four shapes: circle, square, triangle, cross. Prismatize took the triangle. Two candidates for Plume:
 - **The circle (recommended):** the ink dot, the full stop at the end of a sentence you'd publish. Simple, and it leaves the cross for a future product.
 - **The cross:** the editor's mark. Strong for the critics, but it reads as "wrong" or "delete", which is the opposite of the promise.
 
 **Logo directions**
 - **A. Dot and stroke:** the goua.la circle with one thin, tapering stroke leaving it, like a nib's first line. Best for the hero and README header.
 - **B. Dot only:** a plain circle, maybe with a small notch for the nib slit. Works at favicon size (16 to 32 px).
-- **C. Wordmark:** "plume" in lowercase, like goua.la and prism, with the circle as the full stop: "plume."
+- **C. Wordmark:** "plume" in lowercase, like goua.la and prismatize, with the circle as the full stop: "plume."
 
 Use A for large formats, B for icons and avatars, C for headers.
 

@@ -142,7 +142,7 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Status
 
-**v0.7.2, untested on real briefs.**
+**v0.7.3, untested on real briefs.**
 - Built: skill and modes, 10 families, 10 platforms, role prompts, plugin agents and commands, merge, lint, learn diff and pack validation scripts, templates, a fictional example pack
 - Scripts tested on the example pack (`scripts/test.sh`)
 - Cross-platform metadata for ChatGPT and Codex (`agents/openai.yaml`), not tested there yet
@@ -151,7 +151,7 @@ The metric is **edit distance to publish**: how much you change Plume's draft be
 
 ## Credits
 
-Built by [Virgile Gouala](https://goua.la). Sister skill: [Prism](https://github.com/The-Discipline/skill-prism), a decision council for one-person businesses.
+Built by [Virgile Gouala](https://goua.la). Sister skill: [Prismatize](https://github.com/The-Discipline/skill-prismatize), a decision council for one-person businesses.
 
 Ideas, not code, from Jake Schincariol's [linkedin-agent-skill](https://github.com/Jakeschincariol/linkedin-agent-skill): a stock-word list, a specificity check and invisible-character cleanup in the lint, starting a voice from three posts, and a bio format.
 

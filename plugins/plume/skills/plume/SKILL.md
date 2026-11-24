@@ -38,7 +38,7 @@ Look in this order and stop at the first complete source:
 - **Settings in plain words:** when the user says "allow the word X", "use ▸ as my list marker" or "shorter LinkedIn posts", write it into the pack's formats section yourself as an accepted update. Never ask the user to edit a setting by hand.
 - **Scripts need files:** for a pack outside the workspace, write a working copy into a folder, split into the section files the scripts expect (the names in `templates/`), then run them. This copy is Plume's own: the user never sees or edits it. If that's not possible, apply the checks by reading.
 
-The pack is about voice. Business data (offers, prices, readers, positioning) may live in a separate source, in any of the places above: for example a "Grey matter" / "Matière grise" page or a Prism context file. Setup imports from it; when `facts.md` says a line comes from a source older than three months, mention it once.
+The pack is about voice. Business data (offers, prices, readers, positioning) may live in a separate source, in any of the places above: for example a "Grey matter" / "Matière grise" page or a Prismatize context file. Setup imports from it; when `facts.md` says a line comes from a source older than three months, mention it once.
 
 If code execution is available, run `python3 scripts/validate_pack.py <pack-dir>` from this skill's folder and report gaps in one line. If a script fails to run on this platform, say so once and apply the same checks by reading, labelled "lint done by the model".
 
